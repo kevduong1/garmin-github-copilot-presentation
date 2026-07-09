@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Copilot &amp; LLMs — Garmin</title>
+
+<!-- ============================================================
+     SHELL — deck chrome only. Slide content lives in slides/,
+     one file per slide, loaded in the order set by
+     slides/manifest.js. Shared styles: assets/deck.css.
+     ============================================================ -->
+
+<!-- FONTS — mirror of the Garmin brand template
+       Archivo Narrow → condensed display headlines  (≈ Arial Narrow)
+       Archivo        → body / UI
+       JetBrains Mono → dates, labels, code           (≈ Consolas) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<body>
+<div class="deck-viewport">
+  <main class="deck-stage" id="deckStage">
+    <!-- Slides are injected here from slides/*.html -->
+  </main>
+</div>
+
+<!-- ===== CHROME ===== -->
+<nav class="dots" id="dots" aria-label="Slides"></nav>
+<div class="arrows"><button id="prev" aria-label="Previous slide">‹</button><button id="next" aria-label="Next slide">›</button></div>
+<div class="counter" id="counter"><b>01</b> / 01</div>
+
+<div class="edit-hotzone" id="editHotzone"></div>
+<button class="edit-toggle" id="editToggle" title="Edit mode (E)">✏️</button>
+<div class="edit-hint" id="editHint">Click text to edit · Ctrl/⌘+S to save</div>
+
+<script src="slides/manifest.js"></script>
+<script src="assets/deck.js"></script>
+</body>
+</html>

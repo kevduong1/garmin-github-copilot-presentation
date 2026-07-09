@@ -1,5 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/garmin-copilot-llms.html" }
+  "redirects": [
+    { "source": "/garmin-copilot-llms.html", "destination": "/", "permanent": false }
   ]
 }
