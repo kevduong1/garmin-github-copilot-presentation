@@ -8,4 +8,6 @@ window.SLIDES = [
   '01-title.html',
   '02-disclaimer.html',
   '03-contents.html',
+  '04-what-is-an-llm.html',
+  '05-what-is-an-agent.html',
 ];
