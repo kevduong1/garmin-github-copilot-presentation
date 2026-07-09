@@ -91,8 +91,6 @@ img,video,canvas,svg{max-width:100%;max-height:100%}
   font-size:150px;line-height:.94;color:var(--ink)}
 .h2{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;letter-spacing:.012em;
   font-size:92px;line-height:.98;color:var(--ink)}
-.h3{font-family:var(--font-cond);font-weight:600;text-transform:uppercase;letter-spacing:.02em;
-  font-size:38px;line-height:1.04;color:var(--ink)}
 
 .lead{font-size:34px;line-height:1.45;color:var(--gray);font-weight:400;max-width:26ch}
 .body{font-size:28px;line-height:1.55;color:var(--gray);font-weight:400}
@@ -112,14 +110,6 @@ img,video,canvas,svg{max-width:100%;max-height:100%}
 .cover .date{font-size:22px;letter-spacing:.22em}
 
 /* ===========================================
-   SECTION TITLE  (centered, big number)
-   =========================================== */
-.section .num{font-family:var(--font-mono);font-size:24px;letter-spacing:.3em;color:var(--blue);margin-bottom:34px}
-.section .rule{margin:40px auto 0}
-.section .kick2{margin-top:30px;font-family:var(--font-mono);font-size:19px;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--gray2)}
-
-/* ===========================================
    CONTENTS  (agenda)
    =========================================== */
 .head-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
@@ -131,96 +121,6 @@ img,video,canvas,svg{max-width:100%;max-height:100%}
 .arow .d{margin-left:auto;font-family:var(--font-mono);font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);align-self:center}
 
 /* ===========================================
-   HEADLINE CONTENT  (label + date · headline · body)
-   =========================================== */
-.metaline{display:flex;align-items:center;gap:22px;margin-bottom:26px}
-.metaline .sep{width:1px;height:20px;background:var(--line)}
-
-/* flow diagram */
-.flow{display:flex;align-items:stretch;flex-wrap:wrap}
-.node{border:1px solid var(--line);background:var(--card);padding:32px 38px;min-width:238px;display:flex;flex-direction:column;gap:10px}
-.node .nk{font-family:var(--font-mono);font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray2)}
-.node .nt{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:32px;color:var(--ink)}
-.node.solid{background:var(--ink);border-color:var(--ink)}
-.node.solid .nk{color:rgba(255,255,255,.6)}
-.node.solid .nt{color:#fff}
-.node.dash{background:transparent;border-style:dashed}
-.arrow{display:flex;align-items:center;justify-content:center;padding:0 24px;color:var(--gray2);font-size:34px;font-family:var(--font-mono)}
-
-/* tool tokens */
-.tools{display:flex;gap:16px;flex-wrap:wrap}
-.tok{font-family:var(--font-mono);font-size:24px;color:var(--ink);border:1px solid var(--line);padding:14px 24px;background:#fff}
-.tok .p{color:var(--blue)}
-
-/* two-col detail (headline+body | visual) */
-.detail{display:grid;grid-template-columns:1.02fr .98fr;gap:96px;align-items:center;flex:1}
-.detail .txt{display:flex;flex-direction:column;justify-content:center}
-.detail .h2{margin:22px 0 24px}
-.detail .body{max-width:27ch}
-.detail .note{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);font-size:22px;color:var(--gray);max-width:31ch}
-.detail .note b{color:var(--ink);font-weight:600}
-.detail .visual{display:flex;flex-direction:column;justify-content:center;gap:20px}
-
-/* terminal / code panel */
-.panel{border:1px solid var(--line);background:#fff}
-.panel .bar{display:flex;align-items:center;gap:9px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--card)}
-.panel .dot{width:12px;height:12px;border-radius:50%}
-.panel .r{background:#ff5f57}.panel .y{background:#febc2e}.panel .g{background:#28c840}
-.panel .pth{margin-left:10px;font-family:var(--font-mono);font-size:15px;color:var(--gray2)}
-.panel .code{padding:26px 24px;font-family:var(--font-mono);font-size:21px;line-height:1.75;color:var(--ink)}
-.panel .code .p{color:var(--blue)}
-.panel .code .c{color:var(--gray2)}
-
-/* context meter */
-.meter{display:flex;flex-direction:column;gap:12px}
-.meter .lg{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--gray2)}
-.meter .track{height:24px;border:1px solid var(--line);display:flex;overflow:hidden;background:#fff}
-.meter .f1{background:var(--blue)}.meter .f2{background:#cfe4f2}
-
-/* ===========================================
-   TIMELINE  (hairline, no nodes — template style)
-   =========================================== */
-.timeline{border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);margin-top:20px}
-.tl{padding:40px 44px 0 0}
-.tl .yr{font-family:var(--font-mono);font-size:22px;letter-spacing:.14em;color:var(--blue);margin-bottom:18px}
-.tl .th{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:40px;color:var(--ink);margin-bottom:16px}
-.tl .tb{font-size:23px;line-height:1.5;color:var(--gray);max-width:26ch}
-
-/* ===========================================
-   KEY FEATURES + BENEFITS grid
-   =========================================== */
-.grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
-.cell{padding:40px 36px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:18px;min-height:360px}
-.cell:last-child{border-right:none}
-.cell .cn{font-family:var(--font-mono);font-size:17px;color:var(--blue);letter-spacing:.1em}
-.cell .ct{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:34px;line-height:1.02;color:var(--ink)}
-.cell .cb{font-size:22px;line-height:1.5;color:var(--gray);margin-top:auto}
-
-/* comparison two-col */
-.cols{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.col{padding:48px 56px 40px 0}
-.col:last-child{padding:48px 0 40px 56px;border-left:1px solid var(--line)}
-.col .cs{font-family:var(--font-mono);font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:22px}
-.col .ch{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:46px;color:var(--ink);margin-bottom:28px}
-.col ul{list-style:none;display:flex;flex-direction:column;gap:20px}
-.col li{font-size:25px;line-height:1.4;color:var(--gray);padding-left:30px;position:relative}
-.col li::before{content:"";position:absolute;left:0;top:14px;width:13px;height:1px;background:var(--blue)}
-
-/* statement (centered, big uppercase) */
-.statement .st{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;letter-spacing:.012em;
-  font-size:140px;line-height:.92;color:var(--ink)}
-.statement .st .blue{color:var(--blue)}
-.statement .sub{font-size:32px;color:var(--gray);margin-top:38px;max-width:34ch;line-height:1.45}
-
-/* NEXT STEPS list */
-.steps{display:flex;flex-direction:column;margin-top:40px}
-.step{display:flex;gap:38px;align-items:flex-start;padding:32px 4px;border-bottom:1px solid var(--line)}
-.step:first-child{border-top:1px solid var(--line)}
-.step .sn{font-family:var(--font-mono);font-size:20px;color:var(--blue);padding-top:10px;width:46px;flex:none}
-.step .sm{font-family:var(--font-cond);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:42px;color:var(--ink);line-height:1.02}
-.step .ss{font-size:23px;color:var(--gray);margin-top:8px}
-
-/* ===========================================
    REVEAL ANIMATIONS
    =========================================== */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
@@ -230,16 +130,11 @@ img,video,canvas,svg{max-width:100%;max-height:100%}
 .slide.visible .reveal:nth-child(3){transition-delay:.21s}
 .slide.visible .reveal:nth-child(4){transition-delay:.29s}
 .slide.visible .reveal:nth-child(5){transition-delay:.37s}
-.slide.visible .reveal:nth-child(6){transition-delay:.45s}
 .slide.visible .stagger>*{opacity:0;transform:translateY(18px);animation:rise .6s var(--ease) forwards}
 .slide.visible .stagger>*:nth-child(1){animation-delay:.16s}
 .slide.visible .stagger>*:nth-child(2){animation-delay:.26s}
 .slide.visible .stagger>*:nth-child(3){animation-delay:.36s}
-.slide.visible .stagger>*:nth-child(4){animation-delay:.46s}
-.slide.visible .stagger>*:nth-child(5){animation-delay:.56s}
 @keyframes rise{to{opacity:1;transform:none}}
-@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-.cur{display:inline-block;width:.55em;height:1.02em;background:var(--blue);vertical-align:-.12em;margin-left:4px;animation:blink 1.05s step-end infinite}
 
 /* ===========================================
    CHROME  (fixed — grayscale)
@@ -267,331 +162,30 @@ img,video,canvas,svg{max-width:100%;max-height:100%}
 <div class="deck-viewport">
   <main class="deck-stage" id="deckStage">
 
-    <!-- delta SVG reused inline; blue delta on light -->
-
-    <!-- ========== 1 · TITLE OF DECK ========== -->
+    <!-- ========== 1 · TITLE ========== -->
     <section class="slide cover center active">
       <div class="brand lg reveal"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
       <div class="pad">
         <div class="kicker reveal">Engineering&nbsp;·&nbsp;Internal Tech Talk</div>
         <h1 class="h-hero reveal">GitHub Copilot<br><span class="amp">&amp;</span> LLMs</h1>
-        <p class="sub reveal">The brain, the harness, and the agent — how the tools we build with actually work.</p>
+        <p class="sub reveal">A starting template — add slides as the talk takes shape.</p>
         <div class="date reveal">07.08.2026</div>
       </div>
     </section>
 
-    <!-- ========== 2 · CONTENTS ========== -->
+    <!-- ========== 2 · CONTENTS (placeholder) ========== -->
     <section class="slide">
       <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
       <div class="pad">
         <div class="head-row">
           <h2 class="h2 reveal">Contents</h2>
-          <div class="kicker reveal">Five parts</div>
+          <div class="kicker reveal">Outline</div>
         </div>
         <div class="agenda stagger">
-          <div class="arow"><span class="n">01</span><span class="t">What is an LLM?</span><span class="d">The brain</span></div>
-          <div class="arow"><span class="n">02</span><span class="t">Then came agents</span><span class="d">The loop</span></div>
-          <div class="arow"><span class="n">03</span><span class="t">Copilot is just a harness</span><span class="d">The reveal</span></div>
-          <div class="arow"><span class="n">04</span><span class="t">Getting the most out of it</span><span class="d">Four habits</span></div>
-          <div class="arow"><span class="n">05</span><span class="t">Skills, Agents.md &amp; the ask</span><span class="d">Your turn</span></div>
+          <div class="arow"><span class="n">01</span><span class="t">Topic one</span><span class="d">Placeholder</span></div>
+          <div class="arow"><span class="n">02</span><span class="t">Topic two</span><span class="d">Placeholder</span></div>
+          <div class="arow"><span class="n">03</span><span class="t">Topic three</span><span class="d">Placeholder</span></div>
         </div>
-      </div>
-    </section>
-
-    <!-- ========== 3 · SECTION 01 ========== -->
-    <section class="slide section center">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="num reveal">SECTION 01</div>
-        <h1 class="h-hero reveal">What is<br>an LLM?</h1>
-        <hr class="rule reveal">
-        <div class="kick2 reveal">Start with the brain</div>
-      </div>
-    </section>
-
-    <!-- ========== 4 · THE BRAIN (headline) ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="metaline reveal"><span class="kicker">The LLM</span><span class="sep"></span><span class="date">CIRCA 2022</span></div>
-        <h2 class="h2 reveal">The model is the brain</h2>
-        <p class="lead reveal" style="max-width:36ch;margin:26px 0 64px">You hand it text, it predicts text back. That's it — a very good next-word guesser.</p>
-        <div class="flow reveal">
-          <div class="node"><span class="nk">Input</span><span class="nt">Your prompt</span></div>
-          <div class="arrow">→</div>
-          <div class="node solid"><span class="nk">LLM</span><span class="nt">The brain</span></div>
-          <div class="arrow">→</div>
-          <div class="node"><span class="nk">Output</span><span class="nt">Text back</span></div>
-          <div class="arrow">→</div>
-          <div class="node dash"><span class="nk">You</span><span class="nt">Copy &amp; paste</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 5 · THE CATCH (statement) ========== -->
-    <section class="slide statement center">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="st reveal">But a brain alone<br>just <span class="blue">talks</span>.</div>
-        <p class="sub reveal">It can't open your files, run your tests, or touch your codebase. Every action was manual — read, copy, paste, repeat.</p>
-      </div>
-    </section>
-
-    <!-- ========== 6 · SECTION 02 ========== -->
-    <section class="slide section center">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="num reveal">SECTION 02</div>
-        <h1 class="h-hero reveal">Then came<br>agents</h1>
-        <hr class="rule reveal">
-        <div class="kick2 reveal">2024 — give the brain hands</div>
-      </div>
-    </section>
-
-    <!-- ========== 7 · THE AGENT LOOP ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="metaline reveal"><span class="kicker">The agent loop</span><span class="sep"></span><span class="date">2024</span></div>
-        <h2 class="h2 reveal">Wrap the model in a loop</h2>
-        <div class="flow reveal" style="margin:56px 0 44px;align-items:center">
-          <div class="node"><span class="nk">System prompt</span><span class="nt">The rules</span></div>
-          <div class="arrow">→</div>
-          <div class="node"><span class="nk">User prompt</span><span class="nt">The goal</span></div>
-          <div class="arrow">→</div>
-          <div class="node solid"><span class="nk">Tool calls</span><span class="nt">Take action</span></div>
-          <div class="arrow">→</div>
-          <div class="node"><span class="nk">Output</span><span class="nt">Result</span></div>
-        </div>
-        <p class="body reveal" style="max-width:46ch"><span class="blue" style="font-family:var(--font-mono)">↻</span>&nbsp;&nbsp;It runs a tool, reads the result, and decides its next move — again and again — until the job is done.</p>
-      </div>
-    </section>
-
-    <!-- ========== 8 · THE HARNESS ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="metaline reveal"><span class="kicker">Tool calls</span></div>
-        <h2 class="h2 reveal">The model acts through tools</h2>
-        <div class="tools reveal" style="margin:44px 0 54px">
-          <span class="tok"><span class="p">$</span> grep</span>
-          <span class="tok"><span class="p">$</span> read</span>
-          <span class="tok"><span class="p">$</span> edit</span>
-          <span class="tok"><span class="p">$</span> run tests</span>
-          <span class="tok"><span class="p">$</span> git</span>
-        </div>
-        <hr class="hair reveal" style="margin-bottom:40px">
-        <p class="reveal" style="font-family:var(--font-cond);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:58px;line-height:1.08;max-width:22ch;color:var(--ink)">The loop that feeds the model and runs its tools is the <span class="blue">harness</span>.</p>
-      </div>
-    </section>
-
-    <!-- ========== 9 · TIMELINE ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="metaline reveal"><span class="kicker">How we got here</span></div>
-        <h2 class="h2 reveal" style="margin-bottom:14px">A short timeline</h2>
-        <div class="timeline reveal">
-          <div class="tl"><div class="yr">2022</div><div class="th">The brain</div><div class="tb">A raw model. Text in, text out. You are the hands — copy, paste, repeat.</div></div>
-          <div class="tl"><div class="yr">2024</div><div class="th">The agent</div><div class="tb">Wrap it in a loop with tools. Now it can read, edit, and run on its own.</div></div>
-          <div class="tl"><div class="yr">Today</div><div class="th">The harness</div><div class="tb">Copilot packages that loop — and lets us teach it how we work.</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 10 · REVEAL / STATEMENT ========== -->
-    <section class="slide statement center">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="kicker reveal" style="margin-bottom:34px"><span class="b">03</span> &nbsp;·&nbsp; The reveal</div>
-        <div class="st reveal">Copilot is just<br>a <span class="blue">harness</span>.</div>
-        <p class="sub reveal">Same brain everyone uses. What matters is the loop we build around it — and how well we feed it.</p>
-      </div>
-    </section>
-
-    <!-- ========== 11 · SECTION 03 ========== -->
-    <section class="slide section center">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="num reveal">SECTION 04</div>
-        <h1 class="h-hero reveal">Getting the<br>most out of it</h1>
-        <hr class="rule reveal">
-        <div class="kick2 reveal">Four habits that pay off</div>
-      </div>
-    </section>
-
-    <!-- ========== 12 · KEY HABITS grid ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="metaline reveal"><span class="kicker">Habits + benefits</span></div>
-        <h2 class="h2 reveal" style="margin-bottom:48px">Four habits that pay off</h2>
-        <div class="grid reveal">
-          <div class="cell"><span class="cn">01</span><span class="ct">Plan first</span><span class="cb">Lay out the approach before writing a line of code.</span></div>
-          <div class="cell"><span class="cn">02</span><span class="ct">Right model</span><span class="cb">Match the model to the job — speed vs. depth.</span></div>
-          <div class="cell"><span class="cn">03</span><span class="ct">Mind context</span><span class="cb">Compaction &amp; cache hits keep the loop sharp and cheap.</span></div>
-          <div class="cell"><span class="cn">04</span><span class="ct">Curate inputs</span><span class="cb">The harness is only as good as what you feed it.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 13 · PLAN MODE ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad detail">
-        <div class="txt">
-          <div class="kicker reveal">Habit 01</div>
-          <h2 class="h2 reveal">Plan mode</h2>
-          <p class="body reveal">Ask for the plan before the code. You catch wrong assumptions while they're cheap — and get a diff you can actually review.</p>
-          <div class="note reveal"><b>Rule of thumb:</b> the bigger the change, the more it's worth planning first.</div>
-        </div>
-        <div class="visual reveal">
-          <div class="panel">
-            <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="pth">plan-mode</span></div>
-            <div class="code"><span class="c"># proposed steps</span><br><span class="p">1.</span> read auth module<br><span class="p">2.</span> add token refresh<br><span class="p">3.</span> update tests<br><br><span class="c"># approve? (y/n)</span> <span class="cur"></span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 14 · PICK THE MODEL ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad detail">
-        <div class="txt">
-          <div class="kicker reveal">Habit 02</div>
-          <h2 class="h2 reveal">Pick the right model</h2>
-          <p class="body reveal">Not every task needs the biggest model. Reach for a fast one to iterate; reach for a deep one when the problem is genuinely hard.</p>
-          <div class="note reveal"><b>Match effort to stakes</b> — trivial edits and hard architecture are not the same job.</div>
-        </div>
-        <div class="visual reveal">
-          <div class="cols" style="border-top:none">
-            <div class="col" style="padding:0 40px 0 0">
-              <div class="cs">Fast</div><div class="ch" style="font-size:36px;margin-bottom:22px">Iterate</div>
-              <ul><li>Boilerplate &amp; edits</li><li>Quick questions</li><li>Tight feedback loops</li></ul>
-            </div>
-            <div class="col" style="padding:0 0 0 40px">
-              <div class="cs">Deep</div><div class="ch" style="font-size:36px;margin-bottom:22px">Reason</div>
-              <ul><li>Thorny bugs</li><li>Architecture</li><li>Multi-file changes</li></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 15 · CONTEXT WINDOW ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad detail">
-        <div class="txt">
-          <div class="kicker reveal">Habits 03 &amp; 04</div>
-          <h2 class="h2 reveal">Mind the context window</h2>
-          <p class="body reveal">The model only knows what's in its context. Keep it focused, let it <b style="color:var(--ink)">compact</b> when it fills, and structure prompts to land <b style="color:var(--ink)">cache hits</b>.</p>
-          <div class="note reveal"><b>Stable prefix = cache hit</b> — cheaper, faster turns. Curate what it sees; drop what it doesn't need.</div>
-        </div>
-        <div class="visual reveal">
-          <div class="meter">
-            <div class="lg"><span>CONTEXT WINDOW</span><span>68% USED</span></div>
-            <div class="track"><span class="f1" style="width:44%"></span><span class="f2" style="width:24%"></span></div>
-            <div class="lg"><span class="blue">■ cached prefix</span><span>□ fresh · compact soon</span></div>
-          </div>
-          <div class="panel" style="margin-top:24px">
-            <div class="code" style="font-size:19px"><span class="c"># context health</span><br><span class="p">cache</span>&nbsp;&nbsp;&nbsp;reused system + skills<br><span class="p">compact</span>&nbsp;summarize history, keep the thread<br><span class="p">focus</span>&nbsp;&nbsp;&nbsp;only files this task touches</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 16 · SECTION 04 ========== -->
-    <section class="slide section center">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="num reveal">SECTION 05</div>
-        <h1 class="h-hero reveal">Teach your<br>harness</h1>
-        <hr class="rule reveal">
-        <div class="kick2 reveal">Skills &amp; Agents.md</div>
-      </div>
-    </section>
-
-    <!-- ========== 17 · SKILLS ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad detail">
-        <div class="txt">
-          <div class="kicker reveal">Loaded by prompt &amp; context</div>
-          <h2 class="h2 reveal">Skills</h2>
-          <p class="body reveal">Reusable workflows the agent pulls in <b style="color:var(--ink)">when your prompt calls for them</b>. A Skill is the interface to your component — how to build it, test it, work with it.</p>
-          <div class="note reveal"><b>Shareable by design</b> — one person's workflow becomes everyone's.</div>
-        </div>
-        <div class="visual reveal">
-          <div class="panel">
-            <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="pth">.copilot/skills/</span></div>
-            <div class="code" style="font-size:19px"><span class="c"># prompt: "release the maps SDK"</span><br><span class="p">→</span> loads&nbsp;&nbsp;maps-sdk-release/<br><span class="p">→</span> loads&nbsp;&nbsp;changelog-writer/<br><span class="c"># right knowledge, right moment</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 18 · AGENTS.md ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad detail">
-        <div class="txt">
-          <div class="kicker reveal">Loaded by location</div>
-          <h2 class="h2 reveal">Agents.md</h2>
-          <p class="body reveal">Instructions the agent reads <b style="color:var(--ink)">based on where it's working</b> in the repo. Drop one in a directory and every agent that touches it inherits your local rules.</p>
-          <div class="note reveal"><b>Local &amp; private</b> — the conventions that live with your code.</div>
-        </div>
-        <div class="visual reveal">
-          <div class="panel">
-            <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="pth">repo tree</span></div>
-            <div class="code" style="font-size:19px"><span class="p">/</span>AGENTS.md&nbsp;&nbsp;<span class="c">// house rules</span><br><span class="p">/firmware/</span>AGENTS.md&nbsp;&nbsp;<span class="c">// build quirks</span><br><span class="p">/mobile/</span>AGENTS.md&nbsp;&nbsp;<span class="c">// lint + test</span><br><span class="c"># reads the one nearest the work</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 19 · SKILLS vs AGENTS.md ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="metaline reveal"><span class="kicker">When to reach for which</span></div>
-        <h2 class="h2 reveal" style="margin-bottom:10px">Two ways to teach the loop</h2>
-        <div class="cols reveal" style="margin-top:18px;flex:1">
-          <div class="col">
-            <div class="cs">Skills</div><div class="ch">Shareable workflows</div>
-            <ul><li>Triggered by your prompt &amp; context</li><li>An interface to your component</li><li>Team knowledge, packaged once</li><li>Use for anything worth sharing</li></ul>
-          </div>
-          <div class="col">
-            <div class="cs">Agents.md</div><div class="ch">Local conventions</div>
-            <ul><li>Triggered by where work happens</li><li>Lives next to the code it governs</li><li>Private, repo-specific rules</li><li>Use for local, personal workflows</li></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 20 · NEXT STEPS ========== -->
-    <section class="slide">
-      <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <div class="metaline reveal"><span class="kicker">For component leads</span></div>
-        <h2 class="h2 reveal">Next steps</h2>
-        <div class="steps stagger">
-          <div class="step"><span class="sn">01</span><div><div class="sm">Create &amp; share Skills</div><div class="ss">Capture how to build, test, and work with your component — then publish it.</div></div></div>
-          <div class="step"><span class="sn">02</span><div><div class="sm">Keep Agents.md current</div><div class="ss">Put your local rules where the code lives, so every agent inherits them.</div></div></div>
-          <div class="step"><span class="sn">03</span><div><div class="sm">Think in interfaces</div><div class="ss">Shareable &amp; reusable → a Skill. Private &amp; local → Agents.md.</div></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 21 · THANKS ========== -->
-    <section class="slide section center">
-      <div class="brand lg"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
-      <div class="pad">
-        <h1 class="h-hero reveal">Thanks</h1>
-        <hr class="rule reveal">
-        <p class="sub reveal" style="margin-top:34px;font-size:30px;color:var(--gray);max-width:34ch">The brain hasn't changed. The loop around it — and what you teach it — is the edge. Go build a good one.</p>
-        <div class="kick2 reveal" style="margin-top:40px">Questions? · Garmin Engineering</div>
       </div>
     </section>
 
@@ -601,7 +195,7 @@ img,video,canvas,svg{max-width:100%;max-height:100%}
 <!-- ===== CHROME ===== -->
 <nav class="dots" id="dots" aria-label="Slides"></nav>
 <div class="arrows"><button id="prev" aria-label="Previous slide">‹</button><button id="next" aria-label="Next slide">›</button></div>
-<div class="counter" id="counter"><b>01</b> / 21</div>
+<div class="counter" id="counter"><b>01</b> / 02</div>
 
 <div class="edit-hotzone" id="editHotzone"></div>
 <button class="edit-toggle" id="editToggle" title="Edit mode (E)">✏️</button>
@@ -658,13 +252,13 @@ document.getElementById('prev').onclick=()=>deck.prev();
    INLINE EDITING  (E / hover hotzone / click) + localStorage
    ============================================================ */
 const editor={
-  isActive:false,key:'garmin-copilot-deck-v2',
+  isActive:false,key:'garmin-copilot-deck-v3-starter',
   toggle(){
     this.isActive=!this.isActive;
     document.body.classList.toggle('editing',this.isActive);
     document.getElementById('editToggle').classList.toggle('active',this.isActive);
     document.getElementById('editHint').classList.toggle('show',this.isActive);
-    document.querySelectorAll('.slide h1,.slide h2,.slide p,.slide span,.slide .t,.slide .ct,.slide .sm,.slide .ss,.slide li,.slide .tb,.slide .th')
+    document.querySelectorAll('.slide h1,.slide h2,.slide p,.slide span,.slide .t,.slide .d')
       .forEach(el=>el.contentEditable=this.isActive);
     if(!this.isActive)this.save();
   },
