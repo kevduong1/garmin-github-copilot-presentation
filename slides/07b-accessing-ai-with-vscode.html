@@ -1,0 +1,26 @@
+<!-- ========== 7B · ACCESSING AI WITH VSCODE ========== -->
+<style>
+  .s-vscode-access .head{margin-bottom:38px}.s-vscode-access .h2{margin-top:20px}.s-vscode-access .rule{margin-top:30px}
+  .s-vscode-access .layout{display:grid;grid-template-columns:.76fr 1.24fr;gap:94px;align-items:center;flex:1}
+  .s-vscode-access .lead{font:700 46px/1.08 var(--font-cond);text-transform:uppercase;max-width:19ch}.s-vscode-access .body{margin-top:28px;font-size:25px;line-height:1.45;max-width:30ch}
+  .s-vscode-access .editor{height:570px;border:1px solid var(--line);background:#f8f9fa;box-shadow:0 16px 36px rgba(20,26,30,.09);display:grid;grid-template-columns:78px 1fr 330px;grid-template-rows:54px 1fr;overflow:hidden}
+  .s-vscode-access .bar{grid-column:1 / -1;display:flex;align-items:center;padding:0 24px;border-bottom:1px solid var(--line);font:15px var(--font-mono);letter-spacing:.08em;color:var(--gray2)}
+  .s-vscode-access .rail{border-right:1px solid var(--line);padding:26px 0;display:flex;flex-direction:column;align-items:center;gap:23px}.s-vscode-access .rail i{width:26px;height:26px;border:2px solid #8b9298;display:block}.s-vscode-access .rail i.ai{border-color:var(--blue);transform:rotate(45deg);width:22px;height:22px}
+  .s-vscode-access .code{padding:30px 34px;font:18px/1.65 var(--font-mono);color:#767d83}.s-vscode-access .code b{color:var(--ink);font-weight:500}.s-vscode-access .ghost{color:#a3a9ae}.s-vscode-access .inline{margin-top:30px;padding:17px 19px;background:#fff;border-left:3px solid var(--blue);color:var(--gray)}
+  .s-vscode-access .chat{border-left:1px solid var(--line);background:#fff;padding:27px 24px;display:flex;flex-direction:column}.s-vscode-access .chat-title{font:500 15px var(--font-mono);letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:24px}.s-vscode-access .bubble{padding:17px;background:#f3f4f6;font-size:18px;line-height:1.4;color:var(--gray)}.s-vscode-access .input{margin-top:auto;padding:14px 13px;border:1px solid #b9bec3;font:15px var(--font-mono);color:var(--gray2)}
+  .s-vscode-access .legend{display:flex;gap:32px;margin-top:28px;font:500 16px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gray2)}.s-vscode-access .legend span::before{content:"•";color:var(--blue);margin-right:10px}
+</style>
+<section class="slide s-vscode-access">
+  <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
+  <div class="pad">
+    <div class="head"><div class="kicker reveal">VS Code · Copilot surfaces</div><h2 class="h2 reveal">Accessing AI with VS Code</h2><div class="rule reveal"></div></div>
+    <div class="layout">
+      <div><p class="lead reveal">Use AI where the work already happens.</p><p class="body reveal">Choose the smallest surface that fits the task. Completions keep you moving; chat handles questions and multi-step work.</p><div class="legend reveal"><span>Editor</span><span>Inline</span><span>Chat</span></div></div>
+      <div class="editor reveal" aria-label="Simplified VS Code interface showing inline suggestions and chat">
+        <div class="bar">activityService.ts · Visual Studio Code</div><div class="rail"><i></i><i></i><i class="ai"></i><i></i></div>
+        <div class="code"><b>export async function</b> summarizeActivity(id) {<br>&nbsp;&nbsp;const activity = await load(id);<br>&nbsp;&nbsp;<span class="ghost">// Copilot suggests the next lines…</span><div class="inline">Ask about this code or request an edit without leaving the editor.</div>}</div>
+        <div class="chat"><div class="chat-title">Copilot Chat</div><div class="bubble">Explain this function and identify the tests that cover its error paths.</div><div class="input">Ask, edit, or delegate…</div></div>
+      </div>
+    </div>
+  </div>
+</section>

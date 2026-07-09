@@ -1,5 +1,16 @@
-<!-- ========== 3 · CONTENTS (placeholder) ========== -->
-<section class="slide">
+<!-- ========== 3 · CONTENTS ========== -->
+<style>
+  .s-contents .head-row{margin-bottom:32px}
+  .s-contents .agenda{border-top:1px solid var(--line)}
+  .s-contents .arow{display:grid;grid-template-columns:72px 520px 1fr;gap:30px;align-items:start;padding:24px 4px}
+  .s-contents .arow:first-child{border-top:0}
+  .s-contents .arow .n{padding-top:8px}
+  .s-contents .arow .t{font-size:40px;line-height:1.04}
+  .s-contents .topics{display:flex;flex-direction:column;gap:12px;padding-top:4px}
+  .s-contents .topic{position:relative;padding-left:28px;font-size:24px;line-height:1.35;color:var(--gray)}
+  .s-contents .topic::before{content:"";position:absolute;left:0;top:13px;width:10px;height:2px;background:var(--blue)}
+</style>
+<section class="slide s-contents">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
     <div class="head-row">
@@ -7,9 +18,22 @@
       <div class="kicker reveal">Outline</div>
     </div>
     <div class="agenda stagger">
-      <div class="arow"><span class="n">01</span><span class="t">Topic one</span><span class="d">Placeholder</span></div>
-      <div class="arow"><span class="n">02</span><span class="t">Topic two</span><span class="d">Placeholder</span></div>
-      <div class="arow"><span class="n">03</span><span class="t">Topic three</span><span class="d">Placeholder</span></div>
+      <div class="arow">
+        <span class="n">01</span><span class="t">Background</span>
+        <div class="topics"><p class="topic">What are generative AI models?</p><p class="topic">How do we get those models to do useful things for us?</p></div>
+      </div>
+      <div class="arow">
+        <span class="n">02</span><span class="t">Getting started</span>
+        <div class="topics"><p class="topic">Accessing GitHub Copilot</p><p class="topic">Understanding and using its UI</p></div>
+      </div>
+      <div class="arow">
+        <span class="n">03</span><span class="t">Basics &amp; Examples</span>
+        <div class="topics"><p class="topic">Capabilities, plan mode, skills, and more</p><p class="topic">Example demos</p></div>
+      </div>
+      <div class="arow">
+        <span class="n">04</span><span class="t">Q&amp;A and Open Conversation</span>
+        <div class="topics"><p class="topic">Questions, discussion, and shared experiences</p></div>
+      </div>
     </div>
   </div>
 </section>
