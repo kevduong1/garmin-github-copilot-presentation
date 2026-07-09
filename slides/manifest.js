@@ -14,7 +14,6 @@ window.SLIDES = [
   '07-tyler-rains-02.html',
   '08-plan-mode.html',
   '09-agents-md.html',
-  '10-agents-md-content.html',
   '11-skills.html',
   '12-mcps-and-plugins.html',
   '13-custom-agents.html',

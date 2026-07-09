@@ -23,6 +23,7 @@ async function loadSlides(){
   stage.innerHTML=results.filter(r=>r.status==='fulfilled').map(r=>r.value).join('\n');
   editor.load();
   initPlanMode();
+  initAgentsMd();
   window.deck=new Deck();
   document.getElementById('next').onclick=()=>deck.next();
   document.getElementById('prev').onclick=()=>deck.prev();
@@ -48,6 +49,23 @@ function initPlanMode(){
       point.addEventListener('focus',activate);
       point.addEventListener('click',activate);
     });
+  });
+}
+
+/* ============================================================
+   AGENTS.MD DEMO — points on slide 09 reveal contextual examples.
+   ============================================================ */
+function initAgentsMd(){
+  document.querySelectorAll('.s-agents-md').forEach(slide=>{
+    const popup=slide.querySelector('[data-agents-popup]');
+    const popupTitle=slide.querySelector('[data-agents-popup-title]');
+    const popupCode=slide.querySelector('[data-agents-popup-code]');
+    slide.querySelectorAll('[data-agents-file]').forEach(file=>file.addEventListener('click',()=>{
+      popupTitle.textContent=file.dataset.agentsTitle;
+      popupCode.textContent=file.dataset.agentsCode;
+      popup.classList.add('show');
+    }));
+    slide.querySelector('[data-agents-popup-close]')?.addEventListener('click',()=>popup.classList.remove('show'));
   });
 }
 
