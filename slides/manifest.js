@@ -6,5 +6,6 @@
    ============================================================ */
 window.SLIDES = [
   '01-title.html',
-  '02-contents.html',
+  '02-disclaimer.html',
+  '03-contents.html',
 ];

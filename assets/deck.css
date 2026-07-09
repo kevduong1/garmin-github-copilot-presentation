@@ -55,7 +55,7 @@ img,video,canvas,svg{max-width:100%;max-height:100%}
 /* ===========================================
    BRAND MARK  (Garmin delta + wordmark) — top center
    =========================================== */
-.brand{position:absolute;top:52px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:11px;z-index:4}
+.brand{position:absolute;top:52px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:11px;z-index:4}
 .brand .delta{width:22px;height:20px;display:block}
 .brand .wm{font-family:var(--font-cond);font-weight:700;font-size:22px;letter-spacing:.34em;color:var(--ink);padding-left:3px}
 .brand.lg .delta{width:30px;height:27px}
