@@ -22,9 +22,33 @@ async function loadSlides(){
   }
   stage.innerHTML=results.filter(r=>r.status==='fulfilled').map(r=>r.value).join('\n');
   editor.load();
+  initPlanMode();
   window.deck=new Deck();
   document.getElementById('next').onclick=()=>deck.next();
   document.getElementById('prev').onclick=()=>deck.prev();
+}
+
+/* ============================================================
+   PLAN MODE DEMO — interactive example panels for slide 08.
+   Slide fragments are injected as HTML, so the behavior lives here.
+   ============================================================ */
+function initPlanMode(){
+  document.querySelectorAll('.s-plan').forEach(slide=>{
+    const points=[...slide.querySelectorAll('[data-plan-panel]')];
+    const panels=[...slide.querySelectorAll('[data-plan-demo]')];
+    const demo=slide.querySelector('.demo');
+    const select=key=>{
+      points.forEach(point=>point.classList.toggle('selected',point.dataset.planPanel===key));
+      panels.forEach(panel=>panel.classList.toggle('show',panel.dataset.planDemo===key));
+      demo.classList.toggle('video-active',key==='video');
+    };
+    points.forEach(point=>{
+      const activate=()=>select(point.dataset.planPanel);
+      point.addEventListener('mouseenter',activate);
+      point.addEventListener('focus',activate);
+      point.addEventListener('click',activate);
+    });
+  });
 }
 
 /* ============================================================

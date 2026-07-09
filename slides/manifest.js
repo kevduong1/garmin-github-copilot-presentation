@@ -10,4 +10,13 @@ window.SLIDES = [
   '03-contents.html',
   '04-what-is-an-llm.html',
   '05-what-is-an-agent.html',
+  '06-tyler-rains-01.html',
+  '07-tyler-rains-02.html',
+  '08-plan-mode.html',
+  '09-agents-md.html',
+  '10-agents-md-content.html',
+  '11-skills.html',
+  '12-mcps-and-plugins.html',
+  '13-custom-agents.html',
+  '14-sub-agents.html',
 ];
