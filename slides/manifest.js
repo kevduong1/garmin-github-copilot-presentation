@@ -33,7 +33,6 @@ window.SLIDES = [
   '12-requirements-skill-demo.html',
   '15-git-capabilities.html',
   '16-git-capabilities-requirements-demo.html',
-  '17-call-to-action.html',
   '18-success-stories.html',
   '19-questions-and-answers.html',
 ];
