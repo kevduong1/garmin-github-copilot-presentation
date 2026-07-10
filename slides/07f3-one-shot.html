@@ -8,20 +8,43 @@
   .s-one-shot .guardrail b{font:500 15px var(--font-mono);letter-spacing:.1em;color:var(--blue);padding-top:5px}.s-one-shot .guardrail strong{display:block;font:700 27px/1.05 var(--font-cond);text-transform:uppercase;color:var(--ink)}
   .s-one-shot .guardrail span span{display:block;margin-top:6px;font-size:20px;line-height:1.3;color:var(--gray)}
   .s-one-shot .bridge{margin-top:22px;padding-top:18px;border-top:3px solid var(--blue);font:700 29px/1.1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-one-shot .media{position:relative;overflow:hidden;border:1px solid #c8cdd2;background:rgba(255,255,255,.54);box-shadow:0 16px 36px rgba(20,26,30,.08)}
+  .s-one-shot .media{display:flex;flex-direction:column;overflow:hidden;border:1px solid #2d3135;background:#17191b;box-shadow:0 16px 36px rgba(20,26,30,.14)}
+  .s-one-shot .media-image{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
   .s-one-shot .media img{display:block;width:100%;height:100%;object-fit:contain}
-  .s-one-shot .placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:22px;color:var(--gray2)}
-  .s-one-shot .plus{font:300 54px/1 var(--font-body);color:var(--blue)}
-  .s-one-shot .placeholder span:last-child{font:500 16px/1.45 var(--font-mono);letter-spacing:.13em;text-transform:uppercase}.s-one-shot .placeholder b{display:block;color:var(--ink);font-weight:500}
+  .s-one-shot .open-doc{flex:none;width:100%;height:68px;border:0;border-top:3px solid var(--blue);background:#fff;color:var(--ink);font:700 22px/1 var(--font-cond);letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+  .s-one-shot .open-doc:hover,.s-one-shot .open-doc:focus-visible{background:var(--blue);color:#fff;outline:0}
+  .s-one-shot .context-overlay{position:absolute;inset:0;z-index:30;display:none;align-items:center;justify-content:center;padding:74px 118px;background:rgba(15,17,19,.82);backdrop-filter:blur(5px)}
+  .s-one-shot .context-overlay.show{display:flex}
+  .s-one-shot .doc-window{width:100%;height:100%;display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid #6c7379;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+  .s-one-shot .doc-bar{height:70px;flex:none;display:flex;align-items:center;gap:18px;padding:0 24px 0 30px;border-bottom:1px solid var(--line);background:#f3f4f6}
+  .s-one-shot .doc-dot{width:11px;height:11px;border-radius:50%;background:var(--blue)}
+  .s-one-shot .doc-name{font:500 17px var(--font-mono);letter-spacing:.05em;color:var(--ink)}
+  .s-one-shot .close-doc{margin-left:auto;width:42px;height:42px;border:1px solid #b9bec3;background:#fff;color:var(--ink);font:28px/1 var(--font-body);cursor:pointer}
+  .s-one-shot .close-doc:hover,.s-one-shot .close-doc:focus-visible{border-color:var(--blue);background:var(--blue);color:#fff;outline:0}
+  .s-one-shot .doc-body{flex:1;min-height:0;overflow:auto;padding:44px 62px 70px;color:#30343a;font-size:21px;line-height:1.5;scrollbar-color:var(--blue) #e6e8ea}
+  .s-one-shot .doc-body h1{font:700 48px/1.05 var(--font-cond);text-transform:uppercase;color:var(--ink);margin-bottom:24px}
+  .s-one-shot .doc-body h2{font:700 34px/1.1 var(--font-cond);text-transform:uppercase;color:var(--ink);margin:38px 0 15px;padding-bottom:10px;border-bottom:2px solid var(--blue)}
+  .s-one-shot .doc-body h3{font:700 27px/1.15 var(--font-cond);text-transform:uppercase;color:var(--ink);margin:28px 0 10px}
+  .s-one-shot .doc-body p{margin:0 0 15px}.s-one-shot .doc-body strong{color:var(--ink);font-weight:600}
+  .s-one-shot .doc-body blockquote{margin:0 0 26px;padding:17px 22px;border-left:5px solid var(--blue);background:#eef6fa;color:#4d555c}
+  .s-one-shot .doc-body code{padding:2px 6px;background:#e9ecef;color:#1d4f68;font:18px/1.4 var(--font-mono)}
+  .s-one-shot .md-list{display:grid;gap:9px;margin:8px 0 22px}.s-one-shot .md-li{display:grid;grid-template-columns:34px 1fr;gap:5px;padding-left:calc(var(--depth,0)*28px)}
+  .s-one-shot .md-marker{font:500 16px/1.9 var(--font-mono);color:var(--blue)}.s-one-shot .md-text{min-width:0}
+  .s-one-shot .doc-loading{font:500 18px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gray2)}
 </style>
-<section class="slide s-one-shot">
+<section class="slide s-one-shot" data-feature-context>
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head"><div class="kicker reveal">Stage 03 · Delegate the outcome</div><h2 class="h2 reveal">One Shot</h2><div class="rule reveal"></div></div>
+    <div class="head"><div class="kicker reveal">Stage 03 · Delegate the outcome</div><h2 class="h2 reveal">Full Feature Implementation</h2><div class="rule reveal"></div></div>
     <div class="layout">
-      <div class="reveal"><h3 class="claim">One shot does not mean hands off.</h3><div class="guardrails stagger"><div class="guardrail"><b>01</b><span><strong>Detailed prompt</strong><span>Define the outcome, acceptance criteria, and what “done” means.</span></span></div><div class="guardrail"><b>02</b><span><strong>Relevant context</strong><span>Point Copilot to the architecture, examples, and conventions it must follow.</span></span></div><div class="guardrail"><b>03</b><span><strong>Steering &amp; guardrails</strong><span>Set boundaries, review decisions, and verify the implementation.</span></span></div></div><div class="bridge">For larger work, <span class="blue">plan before implementation.</span></div></div>
-      <!-- Replace .placeholder with an <img> when the screenshot is ready. -->
-      <figure class="media reveal" aria-label="Full feature with guided execution"><div class="placeholder"><span class="plus">→</span><span>Full feature · guided execution<b>Prompt · context · guardrails · review</b></span></div></figure>
+      <div class="reveal"><h3 class="claim">Success is in the details.</h3><div class="guardrails stagger"><div class="guardrail"><b>01</b><span><strong>Detailed prompt</strong><span>Define the outcome, acceptance criteria, and what “done” means.</span></span></div><div class="guardrail"><b>02</b><span><strong>Relevant context</strong><span>Point Copilot to the architecture, examples, and conventions it must follow.</span></span></div><div class="guardrail"><b>03</b><span><strong>Steering &amp; guardrails</strong><span>Set boundaries, review decisions, and verify the implementation.</span></span></div></div><div class="bridge">For larger work, <span class="blue">plan before implementation.</span></div></div>
+      <figure class="media reveal" aria-label="Copilot gathering context before a full feature implementation"><div class="media-image"><img src="assets/full-feature-autopilot.png" alt="Copilot Autopilot exploring a codebase using an initial context gathering document"></div><button class="open-doc" type="button" data-context-open>View context document&nbsp; ↗</button></figure>
+    </div>
+  </div>
+  <div class="context-overlay" data-context-overlay aria-hidden="true">
+    <div class="doc-window" role="dialog" aria-modal="true" aria-labelledby="context-doc-title">
+      <div class="doc-bar"><span class="doc-dot"></span><span class="doc-name" id="context-doc-title">initial-context-gather.md · rendered preview</span><button class="close-doc" type="button" data-context-close aria-label="Close context document">×</button></div>
+      <article class="doc-body" data-context-body><div class="doc-loading">Rendering context document…</div></article>
     </div>
   </div>
 </section>

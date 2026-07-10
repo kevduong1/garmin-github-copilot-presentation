@@ -22,6 +22,7 @@ async function loadSlides(){
   }
   stage.innerHTML=results.filter(r=>r.status==='fulfilled').map(r=>r.value).join('\n');
   editor.load();
+  initFeatureContextViewer();
   initPlanMode();
   initChatHistoryDemo();
   initContextInputsDemo();
@@ -32,6 +33,72 @@ async function loadSlides(){
   window.deck=new Deck();
   document.getElementById('next').onclick=()=>deck.next();
   document.getElementById('prev').onclick=()=>deck.prev();
+}
+
+/* ============================================================
+   FULL FEATURE CONTEXT VIEWER — opens the source context file as
+   a rendered Markdown document without leaving slide 07F3.
+   ============================================================ */
+function renderFeatureMarkdown(source){
+  const escape=value=>value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const inline=value=>escape(value)
+    .replace(/`([^`]+)`/g,'<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  const lines=source.replace(/\r/g,'').split('\n');
+  const html=[];
+  let paragraph=[];
+  let list=[];
+  let quote=[];
+  const flushParagraph=()=>{if(paragraph.length){html.push(`<p>${inline(paragraph.join(' '))}</p>`);paragraph=[]}};
+  const flushQuote=()=>{if(quote.length){html.push(`<blockquote>${quote.map(inline).join('<br>')}</blockquote>`);quote=[]}};
+  const flushList=()=>{
+    if(!list.length)return;
+    html.push('<div class="md-list">'+list.map(item=>`<div class="md-li" style="--depth:${item.depth}"><span class="md-marker">${item.marker}</span><span class="md-text">${inline(item.text)}</span></div>`).join('')+'</div>');
+    list=[];
+  };
+  const flushAll=()=>{flushParagraph();flushQuote();flushList()};
+  lines.forEach(line=>{
+    const heading=line.match(/^(#{1,3})\s+(.+)$/);
+    const item=line.match(/^(\s*)([-*]|\d+\.)\s+(.+)$/);
+    const blockquote=line.match(/^>\s?(.*)$/);
+    if(!line.trim()){flushAll();return}
+    if(heading){flushAll();const level=heading[1].length;html.push(`<h${level}>${inline(heading[2])}</h${level}>`);return}
+    if(blockquote){flushParagraph();flushList();quote.push(blockquote[1]);return}
+    if(item){flushParagraph();flushQuote();list.push({depth:Math.min(3,Math.floor(item[1].length/2)),marker:/\d/.test(item[2])?item[2]:'•',text:item[3]});return}
+    flushQuote();flushList();paragraph.push(line.trim());
+  });
+  flushAll();
+  return html.join('');
+}
+
+function initFeatureContextViewer(){
+  document.querySelectorAll('[data-feature-context]').forEach(slide=>{
+    const open=slide.querySelector('[data-context-open]');
+    const close=slide.querySelector('[data-context-close]');
+    const overlay=slide.querySelector('[data-context-overlay]');
+    const body=slide.querySelector('[data-context-body]');
+    let loaded=false;
+    const hide=()=>{overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true');open.focus()};
+    const show=async()=>{
+      overlay.classList.add('show');overlay.setAttribute('aria-hidden','false');close.focus();
+      if(loaded)return;
+      try{
+        const response=await fetch('assets/initial-context-gather.md');
+        if(!response.ok)throw new Error(`HTTP ${response.status}`);
+        body.innerHTML=renderFeatureMarkdown(await response.text());
+        loaded=true;
+      }catch(error){body.innerHTML='<p>Unable to load the context document.</p>'}
+    };
+    open.addEventListener('click',show);
+    close.addEventListener('click',hide);
+    overlay.addEventListener('click',event=>{if(event.target===overlay)hide()});
+    overlay.addEventListener('wheel',event=>event.stopPropagation());
+    overlay.addEventListener('keydown',event=>{
+      if(event.key==='Escape'){event.preventDefault();hide();return}
+      if(['ArrowLeft','ArrowRight','PageUp','PageDown','Home','End',' '].includes(event.key))event.stopPropagation();
+    });
+    slide.resetFeatureContextViewer=()=>{overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true')};
+  });
 }
 
 /* ============================================================
@@ -305,6 +372,7 @@ class Deck{
     this.slides[this.i].resetOutputLoopDemo?.();
     this.slides[this.i].resetChatHistoryDemo?.();
     this.slides[this.i].resetContextInputsDemo?.();
+    this.slides[this.i].resetFeatureContextViewer?.();
     this.slides.forEach((s,k)=>{s.classList.toggle('active',k===this.i);s.classList.toggle('visible',k===this.i)});
     this.dots.forEach((d,k)=>d.classList.toggle('on',k===this.i));
     document.getElementById('counter').innerHTML=`<b>${String(this.i+1).padStart(2,'0')}</b> / ${String(this.slides.length).padStart(2,'0')}`;
