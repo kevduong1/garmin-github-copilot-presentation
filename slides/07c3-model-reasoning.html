@@ -2,8 +2,7 @@
 <style>
   .s-chat-model .head{margin-bottom:42px}.s-chat-model .head .rule{margin-top:30px}
   .s-chat-model .layout{display:grid;grid-template-columns:500px 1fr;gap:88px;align-items:center;flex:1}
-  .s-chat-model .number{font:500 15px var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--blue)}
-  .s-chat-model .topic{margin-top:22px;font:700 70px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-model .topic{margin-top:0;font:700 70px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
   .s-chat-model .lead{margin-top:26px;font-size:28px;line-height:1.4;color:var(--gray)}
   .s-chat-model .cost-note{margin-top:35px;padding:21px 0;border-top:3px solid var(--blue);font:700 28px/1.12 var(--font-cond);text-transform:uppercase;color:var(--ink)}
   .s-chat-model .selectors{height:555px;border:1px solid #aeb4ba;background:#fff;padding:42px 50px;box-shadow:0 16px 36px rgba(20,26,30,.08)}
@@ -18,7 +17,7 @@
   <div class="pad">
     <div class="head"><h2 class="h2">Understanding VS Code Chat</h2><div class="rule"></div></div>
     <div class="layout ai-sequence-body reveal">
-      <div><div class="number">03 · Model + reasoning</div><h3 class="topic">Choose the brain—and how hard it thinks.</h3><p class="lead">The model selector chooses capability. Reasoning controls how much deliberate work happens before the answer.</p><div class="cost-note">More capability and more reasoning generally use more credits.</div></div>
+      <div><h3 class="topic">Choose the brain—and how hard it thinks.</h3><p class="lead">The model selector chooses capability. Reasoning controls how much deliberate work happens before the answer.</p><div class="cost-note">More capability and more reasoning generally use more credits.</div></div>
       <div class="selectors" aria-label="Screenshot-ready mockup of model and reasoning selectors">
         <div class="selector"><div class="selector-label">Model</div><div class="selector-box"><span>Claude Sonnet</span><span>⌄</span></div><div class="selector-help">Which model powers the Copilot harness.</div></div>
         <div class="selector"><div class="selector-label">Reasoning</div><div class="selector-box"><span>High</span><span>⌄</span></div><div class="selector-help">How much effort the model spends working through the task.</div></div>

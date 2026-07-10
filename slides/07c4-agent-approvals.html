@@ -2,8 +2,7 @@
 <style>
   .s-chat-agent .head{margin-bottom:42px}.s-chat-agent .head .rule{margin-top:30px}
   .s-chat-agent .sequence{display:flex;flex-direction:column;flex:1}
-  .s-chat-agent .number{font:500 15px var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--blue)}
-  .s-chat-agent .cards{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:24px;flex:1}
+  .s-chat-agent .cards{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:0;flex:1}
   .s-chat-agent .card{padding:42px 46px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}
   .s-chat-agent .card h3{font:700 55px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
   .s-chat-agent .selector{margin-top:30px;padding:21px 24px;border:2px solid var(--blue);display:flex;justify-content:space-between;font:700 30px var(--font-cond);text-transform:uppercase;color:var(--ink)}
@@ -16,7 +15,6 @@
   <div class="pad">
     <div class="head"><h2 class="h2">Understanding VS Code Chat</h2><div class="rule"></div></div>
     <div class="sequence ai-sequence-body reveal">
-      <div class="number">04 · Agent + approvals</div>
       <div class="cards">
         <article class="card"><h3>Agent selector</h3><div class="selector"><span>Agent</span><span>⌄</span></div><p>Keep Agent selected for normal work. Modes like Ask constrain the harness by removing write tools.</p><div class="mode">Agent = read + write + act</div></article>
         <article class="card"><h3>Approvals</h3><div class="selector"><span>Bypass approvals</span><span>⌄</span></div><p>Approvals control when Copilot pauses before taking action. Choose the level that fits your trust and the risk of the task.</p><div class="mode">More autonomy = more responsibility</div></article>
