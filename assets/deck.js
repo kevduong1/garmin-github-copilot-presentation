@@ -25,12 +25,38 @@ async function loadSlides(){
   initPlanMode();
   initChatHistoryDemo();
   initContextInputsDemo();
+  initSkills();
   initAgentsMd();
   initContextDemo();
   initOutputLoopDemo();
   window.deck=new Deck();
   document.getElementById('next').onclick=()=>deck.next();
   document.getElementById('prev').onclick=()=>deck.prev();
+}
+
+/* ============================================================
+   SKILLS DEMO — the first bullet shows the skill's file tree;
+   the remaining bullets highlight matching SKILL.md sections.
+   ============================================================ */
+function initSkills(){
+  document.querySelectorAll('.s-skills').forEach(slide=>{
+    const points=[...slide.querySelectorAll('[data-skill-point]')];
+    const views=[...slide.querySelectorAll('[data-skill-view]')];
+    const sections=[...slide.querySelectorAll('[data-skill-section]')];
+    const captions=[...slide.querySelectorAll('[data-skill-caption]')];
+    const select=key=>{
+      points.forEach(point=>{
+        const selected=point.dataset.skillPoint===key;
+        point.classList.toggle('selected',selected);
+        point.setAttribute('aria-pressed',String(selected));
+      });
+      views.forEach(view=>view.classList.toggle('show',view.dataset.skillView===(key==='file'?'tree':'content')));
+      sections.forEach(section=>section.classList.toggle('skill-focus',section.dataset.skillSection===key));
+      captions.forEach(caption=>caption.classList.toggle('show',caption.dataset.skillCaption===(key==='file'?'tree':'content')));
+    };
+    points.forEach(point=>point.addEventListener('click',()=>select(point.dataset.skillPoint)));
+    select(points[0]?.dataset.skillPoint);
+  });
 }
 
 /* ============================================================
@@ -52,6 +78,73 @@ function initPlanMode(){
       point.addEventListener('mouseenter',activate);
       point.addEventListener('focus',activate);
       point.addEventListener('click',activate);
+    });
+
+    slide.querySelectorAll('[data-plan-demo="questions"]').forEach(questionDemo=>{
+      const steps=[...questionDemo.querySelectorAll('[data-question-step]')];
+      const sets=[...questionDemo.querySelectorAll('[data-question-set]')];
+      const next=questionDemo.querySelector('[data-question-next]');
+      const status=questionDemo.querySelector('.question-status');
+      const answered=sets.map(()=>false);
+      const answers=sets.map(()=>"");
+      let current=0;
+      let complete=false;
+      const syncPlan=()=>sets.forEach((set,index)=>{
+        const target=slide.querySelector(`[data-plan-answer="${set.dataset.planKey}"]`);
+        if(target)target.textContent=answers[index]||'Awaiting answer';
+      });
+      const render=()=>{
+        steps.forEach((step,index)=>{
+          const active=index===current;
+          step.classList.toggle('active',active);
+          step.setAttribute('aria-selected',String(active));
+        });
+        sets.forEach((set,index)=>set.classList.toggle('show',index===current));
+        const finalQuestion=current===sets.length-1;
+        next.disabled=!answered[current]||(complete&&finalQuestion);
+        next.textContent=finalQuestion?(complete?'Answers saved':'Done'):'Next question';
+        status.textContent=complete&&finalQuestion
+          ?'Answers sent to the plan'
+          :answered[current]
+          ?(finalQuestion?'Plan mode has enough detail':'Answer saved')
+          :'Choose an answer to continue';
+      };
+      const goTo=index=>{current=(index+steps.length)%steps.length;render();steps[current].focus()};
+      steps.forEach((step,index)=>{
+        step.addEventListener('click',()=>{current=index;render()});
+        step.addEventListener('keydown',event=>{
+          if(event.key==='ArrowRight'||event.key==='ArrowDown'){event.preventDefault();goTo(index+1)}
+          if(event.key==='ArrowLeft'||event.key==='ArrowUp'){event.preventDefault();goTo(index-1)}
+          if(event.key==='Home'){event.preventDefault();goTo(0)}
+          if(event.key==='End'){event.preventDefault();goTo(steps.length-1)}
+        });
+      });
+      sets.forEach((set,index)=>{
+        set.querySelectorAll('.option').forEach(option=>option.addEventListener('click',()=>{
+          set.querySelectorAll('.option').forEach(item=>item.classList.toggle('selected',item===option));
+          const input=set.querySelector('.input');
+          if(input)input.value='';
+          answers[index]=option.dataset.answer||option.textContent.trim();
+          answered[index]=true;
+          syncPlan();
+          render();
+        }));
+        set.querySelector('.input')?.addEventListener('input',event=>{
+          const value=event.target.value.trim();
+          if(value)set.querySelectorAll('.option').forEach(option=>option.classList.remove('selected'));
+          const selected=set.querySelector('.option.selected');
+          answers[index]=value||(selected?.dataset.answer||'');
+          answered[index]=Boolean(answers[index]);
+          syncPlan();
+          render();
+        });
+      });
+      next.addEventListener('click',()=>{
+        if(current<sets.length-1)goTo(current+1);
+        else {complete=true;render();select('steer')}
+      });
+      syncPlan();
+      render();
     });
   });
 }
