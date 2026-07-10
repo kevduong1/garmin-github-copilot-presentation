@@ -1,28 +1,37 @@
 <!-- ========== 7A · GETTING STARTED WITH GITHUB COPILOT ========== -->
 <style>
-  .s-copilot-start .head{margin-bottom:54px}
+  .s-copilot-start .head{margin-bottom:42px}
   .s-copilot-start .head .rule{margin-top:30px}
-  .s-copilot-start .resources{display:grid;grid-template-columns:1fr 1fr;gap:46px;flex:1}
+  .s-copilot-start .resources{display:grid;grid-template-columns:1fr 1fr;column-gap:46px;row-gap:16px;flex:1}
   .s-copilot-start .resource{
-    position:relative;padding:42px 46px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    position:relative;padding:36px 42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
     display:flex;flex-direction:column;background:rgba(255,255,255,.2);
   }
   .s-copilot-start .step{
     font:500 15px var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--blue);
   }
   .s-copilot-start .resource h3{
-    margin-top:28px;font:700 50px/1.04 var(--font-cond);text-transform:uppercase;color:var(--ink);max-width:13ch;
+    margin-top:24px;font:700 46px/1.04 var(--font-cond);text-transform:uppercase;color:var(--ink);max-width:14ch;
   }
-  .s-copilot-start .resource p{margin-top:24px;font-size:25px;line-height:1.4;color:var(--gray);max-width:31ch}
+  .s-copilot-start .resource p{margin-top:20px;font-size:23px;line-height:1.38;color:var(--gray);max-width:35ch}
+  .s-copilot-start .checklist{margin:22px 0 28px;padding:0;list-style:none;display:grid;gap:12px}
+  .s-copilot-start .checklist li{position:relative;padding-left:27px;font-size:21px;line-height:1.3;color:var(--ink)}
+  .s-copilot-start .checklist li::before{content:"";position:absolute;left:0;top:.52em;width:10px;height:10px;background:var(--blue)}
+  .s-copilot-start .resource-link{
+    margin-top:auto;padding-top:24px;border-top:1px solid var(--line);color:inherit;text-decoration:none;
+  }
   .s-copilot-start .link-name{
-    margin-top:auto;padding-top:30px;border-top:1px solid var(--line);
     display:flex;justify-content:space-between;align-items:center;
-    font:700 27px/1 var(--font-cond);text-transform:uppercase;color:var(--ink);
+    font:700 25px/1 var(--font-cond);text-transform:uppercase;color:var(--ink);
   }
+  .s-copilot-start .resource-link:hover .link-name span:first-child,
+  .s-copilot-start .resource-link:focus-visible .link-name span:first-child{color:var(--blue)}
+  .s-copilot-start .resource-link:focus-visible{outline:2px solid var(--blue);outline-offset:8px}
   .s-copilot-start .link-name span:last-child{font:500 22px var(--font-mono);color:var(--blue)}
+  .s-copilot-start .link-host{margin-top:10px;font:500 14px/1.2 var(--font-mono);letter-spacing:.02em;color:var(--gray2);text-transform:none}
   .s-copilot-start .after{
-    grid-column:1/-1;padding:25px 0 4px;border-top:3px solid var(--blue);
-    font:700 38px/1.08 var(--font-cond);text-align:center;text-transform:uppercase;color:var(--ink);
+    grid-column:1/-1;padding:14px 0 0;border-top:3px solid var(--blue);
+    font:700 30px/1.08 var(--font-cond);text-align:center;text-transform:uppercase;color:var(--ink);
   }
 </style>
 <section class="slide s-copilot-start">
@@ -36,16 +45,32 @@
       <article class="resource reveal">
         <span class="step">01 · Request access</span>
         <h3>Get approved for Copilot</h3>
-        <p>Submit Garmin's access form. Access is generally approved for employees.</p>
-        <div class="link-name"><span>Access request form</span><span>↗</span></div>
+        <p>Use Garmin's Application Access Form to request GitHub Copilot.</p>
+        <ul class="checklist">
+          <li>Open the access request instructions</li>
+          <li>Choose <strong>GitHub Copilot</strong> as the application</li>
+          <li>Submit for manager approval</li>
+        </ul>
+        <a class="resource-link" href="https://confluence.garmin.com/display/CKB/How+to+Request+Access" target="_blank" rel="noopener noreferrer">
+          <div class="link-name"><span>Open access request</span><span>↗</span></div>
+          <div class="link-host">confluence.garmin.com · CKB</div>
+        </a>
       </article>
       <article class="resource reveal">
-        <span class="step">02 · Set up</span>
-        <h3>Follow the IT guide</h3>
-        <p>Use the internal setup page to connect your account and sign in through VS Code.</p>
-        <div class="link-name"><span>IT Confluence page</span><span>↗</span></div>
+        <span class="step">02 · After approval</span>
+        <h3>Set up Copilot in VS Code</h3>
+        <p>Follow the internal Guidebook's installation instructions.</p>
+        <ul class="checklist">
+          <li>Sign in through Garmin Single Sign-On</li>
+          <li>Install the GitHub Copilot Chat extension</li>
+          <li>Authorize, reload, and confirm Chat opens</li>
+        </ul>
+        <a class="resource-link" href="https://confluence.garmin.com/display/CSP/GitHub+Copilot+Guidebook#GitHubCopilotGuidebook-InstallationInstructions" target="_blank" rel="noopener noreferrer">
+          <div class="link-name"><span>Open installation guide</span><span>↗</span></div>
+          <div class="link-host">confluence.garmin.com · CSP</div>
+        </a>
       </article>
-      <div class="after reveal">Approved → Sign in to GitHub Copilot → Open VS Code</div>
+      <div class="after reveal">Request → Approval → Allow 1–2 hours to sync → Install in VS Code</div>
     </div>
   </div>
 </section>

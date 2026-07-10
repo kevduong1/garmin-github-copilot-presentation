@@ -1,46 +1,46 @@
 <!-- ========== 6C · CONTEXT AND PROBABILITY ========== -->
 <style>
-  .s-context-demo .head{margin-bottom:46px}
+  .s-context-demo .head{margin-bottom:38px}
   .s-context-demo .head .rule{margin-top:30px}
   .s-context-demo .content{display:flex;flex:1;flex-direction:column}
-  .s-context-demo .context-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:78px;align-items:start}
+  .s-context-demo .context-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:start}
   .s-context-demo .section-label{
-    margin-bottom:18px;font:500 16px var(--font-mono);
+    margin-bottom:22px;font:500 19px var(--font-mono);
     letter-spacing:.18em;text-transform:uppercase;color:var(--gray2);
   }
-  .s-context-demo .token-sentence{display:flex;flex-wrap:wrap;gap:10px;min-height:112px;align-content:flex-start}
+  .s-context-demo .token-sentence{display:flex;flex-wrap:wrap;gap:14px;min-height:146px;align-content:flex-start}
   .s-context-demo .token{
-    height:50px;padding:0 18px;border:1px solid #c4c8cd;background:rgba(255,255,255,.42);
+    height:74px;min-width:110px;padding:0 28px;border:1px solid #c4c8cd;background:rgba(255,255,255,.42);
     display:flex;align-items:center;justify-content:center;
-    font:700 25px/1 var(--font-cond);text-transform:uppercase;color:var(--ink);
+    font:700 36px/1 var(--font-cond);text-transform:uppercase;color:var(--ink);
   }
   .s-context-demo .token.context-only{display:none;border-color:var(--blue);color:var(--blue)}
   .s-context-demo.with-context .token.context-only{display:flex}
-  .s-context-demo .token.blank{min-width:116px;border:2px dashed var(--blue);background:rgba(0,124,195,.035)}
+  .s-context-demo .token.blank{min-width:155px;border:2px dashed var(--blue);background:rgba(0,124,195,.035)}
   .s-context-demo .context-toggle{
-    width:100%;margin-top:22px;padding:18px 22px;border:1px solid #bcc2c8;background:rgba(255,255,255,.5);
+    width:100%;margin-top:20px;padding:24px 28px;border:1px solid #bcc2c8;background:rgba(255,255,255,.5);
     display:flex;align-items:center;justify-content:space-between;cursor:pointer;color:var(--ink);
     transition:border-color .25s var(--ease),background .25s var(--ease);
   }
   .s-context-demo .context-toggle:hover,
   .s-context-demo .context-toggle[aria-pressed="true"]{border-color:var(--blue);background:rgba(0,124,195,.05)}
   .s-context-demo .toggle-action{
-    font:500 15px var(--font-mono);letter-spacing:.15em;text-transform:uppercase;color:var(--blue);
+    font:500 17px var(--font-mono);letter-spacing:.15em;text-transform:uppercase;color:var(--blue);
   }
-  .s-context-demo .toggle-context{font-size:22px;color:var(--gray)}
+  .s-context-demo .toggle-context{font-size:28px;color:var(--gray)}
   .s-context-demo .context-definition{
-    margin-top:24px;padding-top:22px;border-top:1px solid var(--line);
-    font-size:25px;line-height:1.4;color:var(--gray);
+    margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:29px;line-height:1.34;color:var(--gray);
   }
-  .s-context-demo .distribution{display:flex;flex-direction:column;gap:16px}
-  .s-context-demo .prob-row{display:grid;grid-template-columns:118px 1fr 58px;gap:16px;align-items:center}
-  .s-context-demo .candidate{font:700 25px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-context-demo .track{height:12px;background:#dfe2e5;overflow:hidden}
+  .s-context-demo .distribution{display:flex;flex-direction:column;gap:32px;padding-top:6px}
+  .s-context-demo .prob-row{display:grid;grid-template-columns:160px 1fr 76px;gap:20px;align-items:center}
+  .s-context-demo .candidate{font:700 38px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-context-demo .track{height:24px;background:#dfe2e5;overflow:hidden}
   .s-context-demo .fill{display:block;height:100%;width:var(--p);background:var(--blue);transition:width .55s var(--ease)}
-  .s-context-demo .percent{font:500 16px var(--font-mono);text-align:right;color:var(--gray2)}
+  .s-context-demo .percent{font:500 23px var(--font-mono);text-align:right;color:var(--gray2)}
   .s-context-demo .sampling-note{
-    margin-top:24px;padding-top:20px;border-top:1px solid var(--line);
-    font-size:24px;line-height:1.4;color:var(--gray);
+    margin-top:32px;padding-top:24px;border-top:1px solid var(--line);
+    font-size:27px;line-height:1.38;color:var(--gray);
   }
   .s-context-demo .math-contrast{
     display:grid;grid-template-columns:420px 1fr;gap:52px;align-items:center;
@@ -85,7 +85,6 @@
           <p class="context-definition"><span class="blue">Context</span> is every input token the model can currently see.</p>
         </div>
         <div class="probability-side">
-          <div class="section-label">Illustrative next-token probabilities</div>
           <div class="distribution">
             <div class="prob-row" data-base="44" data-context="2">
               <span class="candidate">Morning</span><span class="track"><span class="fill" style="--p:44%"></span></span><span class="percent">44%</span>
