@@ -1,27 +1,25 @@
 <!-- ========== 7C3 · UNDERSTANDING VS CODE CHAT · MODEL + REASONING ========== -->
 <style>
   .s-chat-model .head{margin-bottom:42px}.s-chat-model .head .rule{margin-top:30px}
-  .s-chat-model .layout{display:grid;grid-template-columns:500px 1fr;gap:88px;align-items:center;flex:1}
-  .s-chat-model .topic{margin-top:0;font:700 70px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-chat-model .lead{margin-top:26px;font-size:28px;line-height:1.4;color:var(--gray)}
-  .s-chat-model .cost-note{margin-top:35px;padding:21px 0;border-top:3px solid var(--blue);font:700 28px/1.12 var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-chat-model .selectors{height:555px;border:1px solid #aeb4ba;background:#fff;padding:42px 50px;box-shadow:0 16px 36px rgba(20,26,30,.08)}
-  .s-chat-model .selector + .selector{margin-top:42px}
-  .s-chat-model .selector-label{font:500 15px var(--font-mono);letter-spacing:.15em;text-transform:uppercase;color:var(--blue)}
-  .s-chat-model .selector-box{margin-top:15px;padding:26px 29px;border:2px solid var(--blue);display:flex;justify-content:space-between;align-items:center;font:700 37px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-chat-model .selector-help{margin-top:14px;font-size:21px;line-height:1.35;color:var(--gray)}
-  .s-chat-model .equation{margin-top:38px;padding-top:27px;border-top:1px solid var(--line);font:700 37px/1 var(--font-cond);text-align:center;text-transform:uppercase;color:var(--ink)}
+  .s-chat-model .layout{display:grid;grid-template-columns:520px 1fr;gap:76px;align-items:center;flex:1}
+  .s-chat-model .topic{margin-top:0;font:700 64px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-model .lead{margin-top:28px;font-size:27px;line-height:1.38;color:var(--gray)}
+  .s-chat-model .cost-note{margin-top:34px;padding:22px 0;border-top:3px solid var(--blue);font:700 28px/1.15 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-model .menus{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+  .s-chat-model .menu{margin:0}
+  .s-chat-model .menu-title{margin-bottom:16px;font:700 30px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-model .menu img{display:block;width:100%;height:auto;object-fit:contain;box-shadow:0 18px 42px rgba(20,26,30,.18)}
+  .s-chat-model .menu-copy{margin-top:18px;font-size:21px;line-height:1.35;color:var(--gray)}
 </style>
 <section class="slide s-chat-model ai-continuation" data-continuation="vscode-chat">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head"><h2 class="h2">Understanding VS Code Chat</h2><div class="rule"></div></div>
+    <div class="head"><h2 class="h2">VS Code Chat</h2><div class="rule"></div></div>
     <div class="layout ai-sequence-body reveal">
-      <div><h3 class="topic">Choose the brain—and how hard it thinks.</h3><p class="lead">The model selector chooses capability. Reasoning controls how much deliberate work happens before the answer.</p><div class="cost-note">More capability and more reasoning generally use more credits.</div></div>
-      <div class="selectors" aria-label="Screenshot-ready mockup of model and reasoning selectors">
-        <div class="selector"><div class="selector-label">Model</div><div class="selector-box"><span>Claude Sonnet</span><span>⌄</span></div><div class="selector-help">Which model powers the Copilot harness.</div></div>
-        <div class="selector"><div class="selector-label">Reasoning</div><div class="selector-box"><span>High</span><span>⌄</span></div><div class="selector-help">How much effort the model spends working through the task.</div></div>
-        <div class="equation">Model choice + Reasoning = <span class="blue">Capability &amp; Cost</span></div>
+      <div><h3 class="topic">Model selection and thinking effort</h3><p class="lead">Choose the model that fits the task, then set how much thinking it should spend before answering.</p><div class="cost-note">More capable models and higher effort can use more credits.</div></div>
+      <div class="menus">
+        <figure class="menu"><figcaption class="menu-title">Model selection</figcaption><img src="assets/vscode-model-selection.png" alt="VS Code Chat model selection menu"><p class="menu-copy">Select which model powers the chat.</p></figure>
+        <figure class="menu"><figcaption class="menu-title">Thinking effort</figcaption><img src="assets/vscode-thinking-effort.png" alt="VS Code Chat Thinking Effort menu"><p class="menu-copy">Choose how much reasoning the model uses.</p></figure>
       </div>
     </div>
   </div>

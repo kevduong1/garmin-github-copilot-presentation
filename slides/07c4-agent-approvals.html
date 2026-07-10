@@ -2,24 +2,30 @@
 <style>
   .s-chat-agent .head{margin-bottom:42px}.s-chat-agent .head .rule{margin-top:30px}
   .s-chat-agent .sequence{display:flex;flex-direction:column;flex:1}
-  .s-chat-agent .cards{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:0;flex:1}
-  .s-chat-agent .card{padding:42px 46px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}
-  .s-chat-agent .card h3{font:700 55px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-chat-agent .selector{margin-top:30px;padding:21px 24px;border:2px solid var(--blue);display:flex;justify-content:space-between;font:700 30px var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-chat-agent .card p{margin-top:28px;font-size:25px;line-height:1.4;color:var(--gray)}
-  .s-chat-agent .mode{margin-top:auto;padding-top:25px;border-top:1px solid var(--line);font:700 28px/1.1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-chat-agent .handoff{grid-column:1/-1;padding-top:24px;border-top:3px solid var(--blue);font:700 34px/1.08 var(--font-cond);text-align:center;text-transform:uppercase;color:var(--ink)}
+  .s-chat-agent .layout{display:grid;grid-template-columns:520px 1fr;gap:76px;align-items:center;flex:1}
+  .s-chat-agent .topic{font:700 64px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-agent .lead{margin-top:28px;font-size:27px;line-height:1.38;color:var(--gray)}
+  .s-chat-agent .autonomy{margin-top:34px;padding:22px 0;border-top:3px solid var(--blue);font:700 28px/1.15 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-agent .menus{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+  .s-chat-agent .menu{margin:0}
+  .s-chat-agent .menu-title{margin-bottom:16px;font:700 30px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-agent .menu img{display:block;width:100%;height:auto;object-fit:contain;box-shadow:0 18px 42px rgba(20,26,30,.18)}
+  .s-chat-agent .menu-copy{margin-top:18px;font-size:21px;line-height:1.35;color:var(--gray)}
+  .s-chat-agent .handoff{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font:700 24px/1.08 var(--font-cond);text-align:center;text-transform:uppercase;color:var(--ink)}
 </style>
 <section class="slide s-chat-agent ai-continuation" data-continuation="vscode-chat">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head"><h2 class="h2">Understanding VS Code Chat</h2><div class="rule"></div></div>
+    <div class="head"><h2 class="h2">VS Code Chat</h2><div class="rule"></div></div>
     <div class="sequence ai-sequence-body reveal">
-      <div class="cards">
-        <article class="card"><h3>Agent selector</h3><div class="selector"><span>Agent</span><span>⌄</span></div><p>Keep Agent selected for normal work. Modes like Ask constrain the harness by removing write tools.</p><div class="mode">Agent = read + write + act</div></article>
-        <article class="card"><h3>Approvals</h3><div class="selector"><span>Bypass approvals</span><span>⌄</span></div><p>Approvals control when Copilot pauses before taking action. Choose the level that fits your trust and the risk of the task.</p><div class="mode">More autonomy = more responsibility</div></article>
-        <div class="handoff">Kevin will go deeper on agents, skills, custom tools, and extending the harness.</div>
+      <div class="layout">
+        <div><h3 class="topic">Agents and approvals</h3><p class="lead">Choose how Copilot should work, then decide when it must pause before taking action.</p><div class="autonomy">More autonomy means more responsibility.</div></div>
+        <div class="menus">
+          <figure class="menu"><figcaption class="menu-title">Agent mode</figcaption><img src="assets/vscode-agent-mode.png" alt="VS Code Chat agent mode menu"><p class="menu-copy">Use Agent to read, write, and run tools. Ask answers questions; Plan outlines the work first.</p></figure>
+          <figure class="menu"><figcaption class="menu-title">Approvals</figcaption><img src="assets/vscode-approvals.png" alt="VS Code Chat approvals menu"><p class="menu-copy">Choose when Copilot pauses for confirmation before using tools.</p></figure>
+        </div>
       </div>
+      <div class="handoff">Kevin will go deeper on agents, skills, custom tools, and extending the harness.</div>
     </div>
   </div>
 </section>
