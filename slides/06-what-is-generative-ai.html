@@ -1,18 +1,40 @@
 <!-- ========== 6 · WHAT IS GENERATIVE AI ========== -->
 <style>
-  .s-gen-ai .head{margin-bottom:70px}.s-gen-ai .h2{margin-top:20px}.s-gen-ai .rule{margin-top:30px}
-  .s-gen-ai .layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:120px;align-items:center;flex:1}
-  .s-gen-ai .statement{font:700 68px/1.02 var(--font-cond);text-transform:uppercase;max-width:14ch}
-  .s-gen-ai .copy{font-size:32px;line-height:1.45;color:var(--gray);max-width:34ch}
-  .s-gen-ai .examples{margin-top:42px;padding-top:26px;border-top:1px solid var(--line);font:500 18px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gray2)}
+  .s-gen-ai .head{margin-bottom:70px}.s-gen-ai .rule{margin-top:30px}
+  .s-gen-ai .layout{display:flex;flex:1;flex-direction:column;justify-content:center}
+  .s-gen-ai .statement{
+    margin-bottom:72px;font:700 50px/1 var(--font-cond);
+    letter-spacing:.005em;text-transform:uppercase;white-space:nowrap;
+  }
+  .s-gen-ai .output-strip{
+    display:grid;grid-template-columns:300px repeat(5,1fr);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .s-gen-ai .output-strip > *{display:flex;align-items:center;min-height:118px;padding:0 30px}
+  .s-gen-ai .output-strip > * + *{border-left:1px solid var(--line)}
+  .s-gen-ai .such-as{
+    padding-left:4px;font:500 18px var(--font-mono);
+    letter-spacing:.18em;text-transform:uppercase;color:var(--blue);
+  }
+  .s-gen-ai .output{
+    justify-content:center;font:700 31px/1 var(--font-cond);
+    letter-spacing:.02em;text-transform:uppercase;color:var(--ink);
+  }
 </style>
-<section class="slide s-gen-ai">
+<section class="slide s-gen-ai ai-continuation" data-continuation="generative-ai">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head"><div class="kicker reveal">Background</div><h2 class="h2 reveal">What is generative AI?</h2><div class="rule reveal"></div></div>
-    <div class="layout">
-      <p class="statement reveal">It creates a <span class="blue">new response.</span></p>
-      <div class="reveal"><p class="copy">Generative AI uses patterns learned from data to respond to instructions and context.</p><div class="examples">Text · Code · Images · Audio</div></div>
+    <div class="head"><h2 class="h2">What is generative AI?</h2><div class="rule"></div></div>
+    <div class="layout ai-sequence-body">
+      <p class="statement reveal">AI models that you give input that then generate <span class="blue">useful output.</span></p>
+      <div class="output-strip reveal">
+        <div class="such-as">Such as generating</div>
+        <div class="output">Text</div>
+        <div class="output">Code</div>
+        <div class="output">Documents</div>
+        <div class="output">Images</div>
+        <div class="output">And more</div>
+      </div>
     </div>
   </div>
 </section>

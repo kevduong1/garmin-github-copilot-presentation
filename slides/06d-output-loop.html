@@ -1,0 +1,95 @@
+<!-- ========== 6D · OUTPUT LOOP ========== -->
+<style>
+  .s-output-loop .head{margin-bottom:42px}
+  .s-output-loop .head .rule{margin-top:30px}
+  .s-output-loop .content{display:flex;flex:1;flex-direction:column}
+  .s-output-loop .loop-flow{
+    display:grid;grid-template-columns:1fr 54px 1fr 54px 1fr 54px 1fr;
+    align-items:center;padding:24px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .s-output-loop .flow-step{min-height:84px;display:grid;grid-template-columns:44px 1fr;align-items:start}
+  .s-output-loop .flow-n{font:500 17px var(--font-mono);color:var(--blue);padding-top:4px}
+  .s-output-loop .flow-title{font:700 31px/1.05 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-output-loop .flow-detail{display:block;margin-top:10px;font:400 18px/1.25 var(--font-body);color:var(--gray)}
+  .s-output-loop .flow-arrow{font:400 29px/1 var(--font-body);text-align:center;color:var(--blue)}
+  .s-output-loop .simulator{display:grid;grid-template-columns:1.38fr .62fr;gap:62px;margin-top:36px}
+  .s-output-loop .sim-label{
+    margin-bottom:14px;font:500 15px var(--font-mono);
+    letter-spacing:.17em;text-transform:uppercase;color:var(--gray2);
+  }
+  .s-output-loop .context-stream{
+    min-height:128px;padding:20px;border:1px solid #c4c8cd;background:rgba(255,255,255,.35);
+    display:flex;flex-wrap:wrap;align-content:flex-start;gap:9px;
+  }
+  .s-output-loop .context-token{
+    height:39px;padding:0 13px;border:1px solid #c4c8cd;
+    display:flex;align-items:center;justify-content:center;
+    font:700 20px/1 var(--font-cond);text-transform:uppercase;color:var(--ink);
+  }
+  .s-output-loop .context-token.generated{border-color:var(--blue);color:var(--blue);background:rgba(0,124,195,.04)}
+  .s-output-loop .controls{display:flex;gap:12px;margin-top:15px}
+  .s-output-loop .generate,
+  .s-output-loop .reset-loop{
+    height:54px;border:1px solid #bcc2c8;background:rgba(255,255,255,.55);cursor:pointer;
+    font:500 15px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+  }
+  .s-output-loop .generate{flex:1;border-color:var(--blue);color:var(--blue)}
+  .s-output-loop .generate:hover{background:rgba(0,124,195,.06)}
+  .s-output-loop .generate:disabled{cursor:default;border-color:#c8ccd0;color:var(--gray2)}
+  .s-output-loop .reset-loop{width:112px}
+  .s-output-loop .metrics{border-top:1px solid var(--line)}
+  .s-output-loop .metric{display:grid;grid-template-columns:1fr auto;gap:18px;padding:19px 0;border-bottom:1px solid var(--line)}
+  .s-output-loop .metric-name{
+    font:500 14px var(--font-mono);letter-spacing:.13em;text-transform:uppercase;color:var(--gray2);
+  }
+  .s-output-loop .metric-value{font:700 27px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-output-loop .metric-value.blue{color:var(--blue)}
+  .s-output-loop .note{
+    margin-top:auto;padding:22px 4px 0;border-top:1px solid var(--line);
+    font-size:24px;line-height:1.4;color:var(--gray);
+  }
+</style>
+<section class="slide s-output-loop ai-continuation" data-continuation="ai-models" data-output-loop data-output-tokens="AI|models|generate|text|one|token|at|a|time|.">
+  <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
+  <div class="pad">
+    <div class="head">
+      <h2 class="h2">What are AI Models?</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="content ai-sequence-body reveal">
+      <div class="loop-flow">
+        <div class="flow-step"><span class="flow-n">01</span><div><div class="flow-title">Context window</div><span class="flow-detail">Send every visible input token</span></div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="flow-n">02</span><div><div class="flow-title">Fresh model call</div><span class="flow-detail">No retained memory</span></div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="flow-n">03</span><div><div class="flow-title">Predict one token</div><span class="flow-detail">Sample the next output</span></div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="flow-n">04</span><div><div class="flow-title">Append + repeat ↺</div><span class="flow-detail">Output joins the next input</span></div></div>
+      </div>
+      <div class="simulator">
+        <div>
+          <div class="sim-label">Ever-expanding context window</div>
+          <div class="context-stream" data-context-stream>
+            <span class="context-token">Write</span>
+            <span class="context-token">A</span>
+            <span class="context-token">Sentence</span>
+            <span class="context-token">:</span>
+          </div>
+          <div class="controls">
+            <button class="generate" type="button" data-generate-token>Generate next token</button>
+            <button class="reset-loop" type="button" data-reset-loop>Reset</button>
+          </div>
+        </div>
+        <div>
+          <div class="sim-label">What grows on every call</div>
+          <div class="metrics">
+            <div class="metric"><span class="metric-name">Next call resends</span><span class="metric-value blue" data-next-input>4 tokens</span></div>
+            <div class="metric"><span class="metric-name">Generated so far</span><span class="metric-value" data-generated-count>0 tokens</span></div>
+            <div class="metric"><span class="metric-name">Cumulative input</span><span class="metric-value" data-cumulative>0 tokens</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><span class="blue">Conceptually, every call is stateless.</span> Caching can reduce repeated work in practice, but the growing context still drives cost.</p>
+    </div>
+  </div>
+</section>

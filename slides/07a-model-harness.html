@@ -1,0 +1,63 @@
+<!-- ========== 7A · FROM MODELS TO AGENTS ========== -->
+<style>
+  .s-harness .head{margin-bottom:44px}
+  .s-harness .head .rule{margin-top:30px}
+  .s-harness .ecosystem{
+    display:grid;grid-template-columns:1fr 650px 1fr;gap:62px;align-items:center;flex:1;
+  }
+  .s-harness .tool-column{display:flex;flex-direction:column;gap:42px}
+  .s-harness .tool-node{
+    position:relative;min-height:104px;padding:22px 12px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;
+    font:700 31px/1.04 var(--font-cond);text-transform:uppercase;color:var(--ink);
+  }
+  .s-harness .tool-column.left .tool-node{justify-content:flex-end;text-align:right}
+  .s-harness .tool-column.left .tool-node::after,
+  .s-harness .tool-column.right .tool-node::before{
+    content:"";position:absolute;top:50%;width:62px;height:1px;background:var(--blue);
+  }
+  .s-harness .tool-column.left .tool-node::after{right:-62px}
+  .s-harness .tool-column.right .tool-node::before{left:-62px}
+  .s-harness .harness{
+    position:relative;height:360px;border:2px solid #aeb4ba;
+    display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.28);
+  }
+  .s-harness .harness-label{
+    position:absolute;top:-24px;left:50%;transform:translateX(-50%);padding:8px 24px;background:var(--slide-bg);
+    font:700 30px/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);
+  }
+  .s-harness .model{
+    width:238px;height:238px;border:2px solid var(--blue);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;background:rgba(247,248,249,.96);
+    font:700 48px/1 var(--font-cond);text-align:center;text-transform:uppercase;color:var(--ink);
+  }
+  .s-harness .formula{
+    grid-column:1/-1;margin-top:6px;padding-top:28px;border-top:1px solid var(--line);
+    font:700 53px/1 var(--font-cond);letter-spacing:.01em;text-align:center;text-transform:uppercase;color:var(--ink);
+  }
+</style>
+<section class="slide s-harness">
+  <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
+  <div class="pad">
+    <div class="head">
+      <h2 class="h2 reveal">From Models to Agents</h2>
+      <div class="rule reveal"></div>
+    </div>
+    <div class="ecosystem">
+      <div class="tool-column left stagger">
+        <div class="tool-node">Search the internet</div>
+        <div class="tool-node">Run terminal commands</div>
+      </div>
+      <div class="harness reveal">
+        <span class="harness-label">Harness</span>
+        <div class="model">AI Model</div>
+      </div>
+      <div class="tool-column right stagger">
+        <div class="tool-node">See images</div>
+        <div class="tool-node">Create files</div>
+      </div>
+      <div class="formula reveal">Model + Harness = <span class="blue">Agency</span></div>
+    </div>
+  </div>
+</section>

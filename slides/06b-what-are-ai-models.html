@@ -1,0 +1,72 @@
+<!-- ========== 6B · WHAT ARE AI MODELS ========== -->
+<style>
+  .s-models-core .head{margin-bottom:56px}
+  .s-models-core .head .rule{margin-top:30px}
+  .s-models-core .demo{display:flex;flex:1;flex-direction:column;justify-content:center}
+  .s-models-core .token-row{
+    display:grid;grid-template-columns:1fr 1fr 1.2fr .72fr 1fr 1.2fr;gap:18px;
+  }
+  .s-models-core .token{
+    display:flex;align-items:center;justify-content:center;height:104px;
+    border:1px solid #bfc4c9;background:rgba(255,255,255,.42);
+    font:700 40px/1 var(--font-cond);letter-spacing:.015em;text-transform:uppercase;color:var(--ink);
+  }
+  .s-models-core .token.blank{
+    border:2px dashed var(--blue);background:rgba(0,124,195,.035);
+  }
+  .s-models-core .token-labels{
+    display:grid;grid-template-columns:repeat(6,1fr);margin-top:16px;
+    font:500 16px var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gray2);
+  }
+  .s-models-core .input-label{grid-column:1/6}
+  .s-models-core .slot-label{grid-column:6;text-align:center;color:var(--blue)}
+  .s-models-core .prediction{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:34px;margin-top:66px;
+  }
+  .s-models-core .predict-label{
+    font:700 38px/1 var(--font-cond);letter-spacing:.01em;text-transform:uppercase;color:var(--ink);
+  }
+  .s-models-core .arrow{position:relative;height:1px;background:var(--line)}
+  .s-models-core .arrow::after{
+    content:"";position:absolute;right:0;top:-5px;
+    border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:10px solid var(--blue);
+  }
+  .s-models-core .output-token{
+    min-width:240px;height:92px;border:2px solid var(--blue);
+    display:flex;align-items:center;justify-content:center;
+    font:700 44px/1 var(--font-cond);letter-spacing:.02em;text-transform:uppercase;color:var(--blue);
+  }
+  .s-models-core .takeaway{
+    margin-top:54px;padding-top:26px;border-top:1px solid var(--line);
+    font-size:28px;line-height:1.4;color:var(--gray);
+  }
+</style>
+<section class="slide s-models-core ai-continuation" data-continuation="ai-models">
+  <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
+  <div class="pad">
+    <div class="head">
+      <h2 class="h2">What are AI Models?</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="demo ai-sequence-body">
+      <div class="token-row reveal">
+        <div class="token">The</div>
+        <div class="token">Sun</div>
+        <div class="token">Rises</div>
+        <div class="token">In</div>
+        <div class="token">The</div>
+        <div class="token blank"></div>
+      </div>
+      <div class="token-labels reveal">
+        <span class="input-label">Input tokens</span>
+        <span class="slot-label">Next token</span>
+      </div>
+      <div class="prediction reveal">
+        <div class="predict-label">The model predicts</div>
+        <div class="arrow"></div>
+        <div class="output-token">East</div>
+      </div>
+      <p class="takeaway reveal">At their core, AI models generate output <span class="blue">one token at a time.</span></p>
+    </div>
+  </div>
+</section>

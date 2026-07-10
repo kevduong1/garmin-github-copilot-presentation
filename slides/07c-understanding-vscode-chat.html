@@ -1,16 +1,31 @@
-<!-- ========== 7C · UNDERSTANDING VSCODE CHAT ========== -->
+<!-- ========== 7C · UNDERSTANDING VS CODE CHAT · CHATS ========== -->
 <style>
-  .s-vscode-chat .head{margin-bottom:62px}.s-vscode-chat .h2{margin-top:20px}.s-vscode-chat .rule{margin-top:30px}
-  .s-vscode-chat .lead{font-size:31px;line-height:1.4;color:var(--gray);max-width:44ch}
-  .s-vscode-chat .prompt{margin-top:auto;padding:46px 54px 50px;border-left:5px solid var(--blue);background:#f8f9fa;max-width:1370px}
-  .s-vscode-chat .label{font:500 16px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:25px}
-  .s-vscode-chat .prompt-copy{font:500 35px/1.42 var(--font-mono);color:var(--ink)}
+  .s-chat-history .head{margin-bottom:42px}.s-chat-history .head .rule{margin-top:30px}
+  .s-chat-history .layout{display:grid;grid-template-columns:520px 1fr;gap:78px;align-items:center;flex:1}
+  .s-chat-history .number{font:500 15px var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--blue)}
+  .s-chat-history .topic{margin-top:22px;font:700 72px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-history .lead{margin-top:26px;font-size:28px;line-height:1.4;color:var(--gray)}
+  .s-chat-history .rule-list{margin-top:36px;border-top:1px solid var(--line)}
+  .s-chat-history .rule-item{padding:18px 0;border-bottom:1px solid var(--line);font-size:24px;color:var(--ink)}
+  .s-chat-history .panel{height:560px;border:1px solid #aeb4ba;background:#fff;display:grid;grid-template-columns:350px 1fr;box-shadow:0 16px 36px rgba(20,26,30,.08)}
+  .s-chat-history .history{padding:30px;border-right:1px solid var(--line)}
+  .s-chat-history .history-head{display:flex;justify-content:space-between;font:500 15px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+  .s-chat-history .new-chat{margin:28px 0;padding:15px;border:2px solid var(--blue);font:700 22px var(--font-cond);text-align:center;text-transform:uppercase;color:var(--ink)}
+  .s-chat-history .chat-row{padding:18px 0;border-bottom:1px solid var(--line);font-size:20px;color:var(--gray)}
+  .s-chat-history .conversation{padding:38px;display:flex;flex-direction:column}
+  .s-chat-history .bubble{max-width:76%;padding:20px 24px;background:#f1f3f5;font-size:20px;line-height:1.4;color:var(--gray)}
+  .s-chat-history .input{margin-top:auto;padding:19px;border:1px solid #aeb4ba;font:17px var(--font-mono);color:var(--gray2)}
 </style>
-<section class="slide s-vscode-chat">
+<section class="slide s-chat-history ai-continuation" data-continuation="vscode-chat">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head"><div class="kicker reveal">Getting started</div><h2 class="h2 reveal">Understanding VS Code Chat</h2><div class="rule reveal"></div></div>
-    <p class="lead reveal">A little context makes a question much easier to answer.</p>
-    <div class="prompt reveal"><div class="label">Example prompt</div><p class="prompt-copy">“Explain what this file does and show me where it is tested.”</p></div>
+    <div class="head"><h2 class="h2">Understanding VS Code Chat</h2><div class="rule"></div></div>
+    <div class="layout ai-sequence-body reveal">
+      <div><div class="number">01 · Chats</div><h3 class="topic">Start fresh.</h3><p class="lead">Chats hold prior context. Create a new one before an unrelated task fills the same context window.</p><div class="rule-list"><div class="rule-item">Return to prior chats</div><div class="rule-item">Create a new chat</div><div class="rule-item">Keep each chat focused</div></div></div>
+      <div class="panel" aria-label="Screenshot-ready mockup of VS Code chat history">
+        <div class="history"><div class="history-head"><span>Chats</span><span>＋</span></div><div class="new-chat">＋ New chat</div><div class="chat-row">Explain activity service</div><div class="chat-row">Add tests for error paths</div><div class="chat-row">Summarize this repository</div></div>
+        <div class="conversation"><div class="bubble">How does this service handle a failed request?</div><div class="input">Ask, edit, or delegate…</div></div>
+      </div>
+    </div>
   </div>
 </section>

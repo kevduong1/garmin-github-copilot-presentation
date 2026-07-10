@@ -1,15 +1,40 @@
 <!-- ========== 7D · COST ========== -->
 <style>
-  .s-cost .head{margin-bottom:72px}.s-cost .h2{margin-top:20px}.s-cost .rule{margin-top:30px}
-  .s-cost .equation{display:flex;align-items:baseline;gap:30px;font:700 76px/1 var(--font-cond);text-transform:uppercase;white-space:nowrap}
-  .s-cost .plus{color:var(--blue);font-weight:300}
-  .s-cost .copy{margin-top:auto;padding-top:32px;border-top:1px solid var(--line);font-size:30px;line-height:1.4;color:var(--gray);max-width:42ch}
+  .s-cost .head{margin-bottom:44px}.s-cost .head .rule{margin-top:30px}
+  .s-cost .layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:84px;align-items:center;flex:1}
+  .s-cost .usage{height:555px;border:1px solid #aeb4ba;background:#fff;padding:42px 46px;box-shadow:0 16px 36px rgba(20,26,30,.08);display:flex;flex-direction:column}
+  .s-cost .profile{display:flex;align-items:center;gap:18px;padding-bottom:27px;border-bottom:1px solid var(--line)}
+  .s-cost .avatar{width:62px;height:62px;border-radius:50%;background:#d7dbe0}
+  .s-cost .profile strong{display:block;font:700 27px var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-cost .profile span{display:block;margin-top:6px;font:14px var(--font-mono);color:var(--gray2)}
+  .s-cost .allowance-label{margin-top:43px;font:500 15px var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .s-cost .credits{margin-top:16px;font:700 74px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-cost .dollars{margin-top:12px;font-size:26px;color:var(--gray)}
+  .s-cost .meter{height:18px;margin-top:42px;background:#e2e5e8;position:relative}
+  .s-cost .meter::before{content:"";position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--blue)}
+  .s-cost .hover{margin-top:auto;padding-top:24px;border-top:1px solid var(--line);font:700 27px/1.1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-cost .explain h3{font:700 58px/1.03 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-cost .factors{margin-top:36px;border-top:1px solid var(--line)}
+  .s-cost .factor{display:grid;grid-template-columns:235px 1fr;gap:26px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .s-cost .factor strong{font:700 28px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-cost .factor span{font-size:23px;line-height:1.35;color:var(--gray)}
+  .s-cost .credit-rate{margin-top:32px;padding-top:24px;border-top:3px solid var(--blue);font:700 37px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
 </style>
 <section class="slide s-cost">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head"><div class="kicker reveal">Getting started</div><h2 class="h2 reveal">Cost</h2><div class="rule reveal"></div></div>
-    <div class="equation reveal"><span>License</span><span class="plus">+</span><span>Usage</span><span class="plus">+</span><span>Engineering time</span></div>
-    <p class="copy reveal">The price of access is only one part of the cost. Review and verification still matter.</p>
+    <div class="head"><h2 class="h2 reveal">Cost</h2><div class="rule reveal"></div></div>
+    <div class="layout">
+      <div class="usage reveal" aria-label="Screenshot-ready mockup of the VS Code Copilot usage popover">
+        <div class="profile"><div class="avatar"></div><div><strong>Your Copilot account</strong><span>Usage and subscription</span></div></div>
+        <div class="allowance-label">Starting allowance</div><div class="credits">15,000 credits</div><div class="dollars">$150 of usage</div><div class="meter"></div>
+        <div class="hover">Hover your profile icon in VS Code to see remaining usage.</div>
+      </div>
+      <div class="explain">
+        <h3 class="reveal">Cost depends on the model—and the work.</h3>
+        <div class="factors stagger"><div class="factor"><strong>Model choice</strong><span>More capable models generally cost more per unit of work.</span></div><div class="factor"><strong>Reasoning</strong><span>More deliberate thinking requires more computation.</span></div><div class="factor"><strong>Task size</strong><span>More context, tool calls, and output consume more credits.</span></div></div>
+        <div class="credit-rate reveal">1 credit = $0.01</div>
+      </div>
+    </div>
   </div>
 </section>

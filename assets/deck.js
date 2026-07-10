@@ -24,6 +24,8 @@ async function loadSlides(){
   editor.load();
   initPlanMode();
   initAgentsMd();
+  initContextDemo();
+  initOutputLoopDemo();
   window.deck=new Deck();
   document.getElementById('next').onclick=()=>deck.next();
   document.getElementById('prev').onclick=()=>deck.prev();
@@ -70,13 +72,81 @@ function initAgentsMd(){
 }
 
 /* ============================================================
+   CONTEXT DEMO — adding input tokens reshapes the illustrative
+   next-token probability distribution on slide 06C.
+   ============================================================ */
+function initContextDemo(){
+  document.querySelectorAll('[data-context-demo]').forEach(demo=>{
+    const toggle=demo.querySelector('[data-context-toggle]');
+    const action=demo.querySelector('[data-toggle-action]');
+    const rows=[...demo.querySelectorAll('.prob-row')];
+    let hasContext=false;
+    const render=()=>{
+      demo.classList.toggle('with-context',hasContext);
+      toggle.setAttribute('aria-pressed',String(hasContext));
+      action.textContent=hasContext?'Remove context':'Add context';
+      rows.forEach(row=>{
+        const value=Number(row.dataset[hasContext?'context':'base']);
+        row.querySelector('.fill').style.setProperty('--p',value+'%');
+        row.querySelector('.percent').textContent=value+'%';
+      });
+    };
+    toggle.addEventListener('click',()=>{hasContext=!hasContext;render()});
+    demo.resetContextDemo=()=>{hasContext=false;render()};
+    render();
+  });
+}
+
+/* ============================================================
+   OUTPUT LOOP DEMO — each click makes a fresh conceptual model
+   call, appends one token, and grows the resent context metrics.
+   ============================================================ */
+function initOutputLoopDemo(){
+  document.querySelectorAll('[data-output-loop]').forEach(demo=>{
+    const stream=demo.querySelector('[data-context-stream]');
+    const generate=demo.querySelector('[data-generate-token]');
+    const reset=demo.querySelector('[data-reset-loop]');
+    const nextInput=demo.querySelector('[data-next-input]');
+    const generatedCount=demo.querySelector('[data-generated-count]');
+    const cumulativeEl=demo.querySelector('[data-cumulative]');
+    const outputs=demo.dataset.outputTokens.split('|');
+    const baseCount=stream.children.length;
+    let step=0,cumulative=0;
+    const tokenLabel=n=>n+' token'+(n===1?'':'s');
+    const render=()=>{
+      nextInput.textContent=tokenLabel(baseCount+step);
+      generatedCount.textContent=tokenLabel(step);
+      cumulativeEl.textContent=tokenLabel(cumulative);
+      generate.disabled=step>=outputs.length;
+      generate.textContent=step>=outputs.length?'Sequence complete':'Generate next token';
+    };
+    const resetDemo=()=>{
+      stream.querySelectorAll('.generated').forEach(token=>token.remove());
+      step=0;cumulative=0;render();
+    };
+    generate.addEventListener('click',()=>{
+      if(step>=outputs.length)return;
+      cumulative+=baseCount+step;
+      const token=document.createElement('span');
+      token.className='context-token generated';
+      token.textContent=outputs[step];
+      stream.appendChild(token);
+      step+=1;render();
+    });
+    reset.addEventListener('click',resetDemo);
+    demo.resetOutputLoopDemo=resetDemo;
+    resetDemo();
+  });
+}
+
+/* ============================================================
    SLIDE CONTROLLER  (fixed 16:9 stage scaling + nav)
    ============================================================ */
 class Deck{
   constructor(){
     this.slides=[...document.querySelectorAll('.slide')];
     this.stage=document.getElementById('deckStage');
-    this.i=0;this.buildDots();this.scale();
+    this.i=0;this.transitioning=false;this.buildDots();this.scale();
     addEventListener('resize',()=>this.scale());
     this.keys();this.wheel();this.touch();this.go(0);
   }
@@ -90,11 +160,32 @@ class Deck{
       b.setAttribute('aria-label','Go to slide '+(n+1));b.onclick=()=>this.go(n);c.appendChild(b)});
     this.dots=[...c.children];
   }
-  go(n){
-    this.i=Math.max(0,Math.min(n,this.slides.length-1));
+  commit(n){
+    this.i=n;
+    this.slides[this.i].resetContextDemo?.();
+    this.slides[this.i].resetOutputLoopDemo?.();
     this.slides.forEach((s,k)=>{s.classList.toggle('active',k===this.i);s.classList.toggle('visible',k===this.i)});
     this.dots.forEach((d,k)=>d.classList.toggle('on',k===this.i));
     document.getElementById('counter').innerHTML=`<b>${String(this.i+1).padStart(2,'0')}</b> / ${String(this.slides.length).padStart(2,'0')}`;
+  }
+  go(n){
+    const next=Math.max(0,Math.min(n,this.slides.length-1));
+    if(this.transitioning)return;
+    const current=this.slides[this.i],incoming=this.slides[next];
+    const group=current?.dataset.continuation;
+    const isContinuation=current!==incoming&&group&&group===incoming?.dataset.continuation;
+    if(!isContinuation){this.commit(next);return}
+    this.transitioning=true;
+    current.classList.add('sequence-leaving');
+    setTimeout(()=>{
+      incoming.classList.add('sequence-entering');
+      this.commit(next);
+      current.classList.remove('sequence-leaving');
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        incoming.classList.remove('sequence-entering');
+        setTimeout(()=>this.transitioning=false,360);
+      }));
+    },260);
   }
   next(){this.go(this.i+1)} prev(){this.go(this.i-1)}
   keys(){addEventListener('keydown',e=>{

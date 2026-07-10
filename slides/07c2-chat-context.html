@@ -1,0 +1,32 @@
+<!-- ========== 7C2 · UNDERSTANDING VS CODE CHAT · CONTEXT ========== -->
+<style>
+  .s-chat-context .head{margin-bottom:42px}.s-chat-context .head .rule{margin-top:30px}
+  .s-chat-context .layout{display:grid;grid-template-columns:510px 1fr;gap:84px;align-items:center;flex:1}
+  .s-chat-context .number{font:500 15px var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--blue)}
+  .s-chat-context .topic{margin-top:22px;font:700 72px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-context .lead{margin-top:26px;font-size:28px;line-height:1.4;color:var(--gray)}
+  .s-chat-context .workspace-note{margin-top:35px;padding:21px 0;border-top:3px solid var(--blue);font:700 29px/1.1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-context .composer{height:560px;border:1px solid #aeb4ba;background:#fff;padding:38px;display:flex;flex-direction:column;box-shadow:0 16px 36px rgba(20,26,30,.08)}
+  .s-chat-context .composer-title{font:500 15px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  .s-chat-context .context-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+  .s-chat-context .context-card{padding:24px;border:1px solid var(--line)}
+  .s-chat-context .context-card strong{display:block;font:700 29px var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-chat-context .context-card span{display:block;margin-top:8px;font-size:19px;line-height:1.3;color:var(--gray)}
+  .s-chat-context .prompt{margin-top:auto;padding:22px;border:2px solid var(--blue);font:18px/1.45 var(--font-mono);color:var(--ink)}
+  .s-chat-context .attachments{margin-top:15px;display:flex;gap:12px;flex-wrap:wrap}
+  .s-chat-context .chip{padding:8px 12px;background:#f1f3f5;font:14px var(--font-mono);color:var(--gray)}
+</style>
+<section class="slide s-chat-context ai-continuation" data-continuation="vscode-chat">
+  <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
+  <div class="pad">
+    <div class="head"><h2 class="h2">Understanding VS Code Chat</h2><div class="rule"></div></div>
+    <div class="layout ai-sequence-body reveal">
+      <div><div class="number">02 · Context</div><h3 class="topic">Control the input.</h3><p class="lead">Context is everything the model can see: your words, attachments, selected code, and workspace.</p><div class="workspace-note">Open the right workspace so Copilot can search the repo directly.</div></div>
+      <div class="composer" aria-label="Screenshot-ready mockup of context options in VS Code Chat">
+        <div class="composer-title">Ways to add context</div>
+        <div class="context-grid"><div class="context-card"><strong>Text</strong><span>Type instructions in chat</span></div><div class="context-card"><strong>Files</strong><span>Attach files or name a path</span></div><div class="context-card"><strong>Images</strong><span>Add visual reference</span></div><div class="context-card"><strong>Selected code</strong><span>Highlight the exact lines</span></div></div>
+        <div class="prompt">Search this workspace and explain how activity retries are handled.<div class="attachments"><span class="chip">activityService.ts</span><span class="chip">Lines 18–44</span><span class="chip">screenshot.png</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -119,6 +119,20 @@ img,video,canvas,svg{max-width:100%;max-height:100%}
 @keyframes rise{to{opacity:1;transform:none}}
 
 /* ===========================================
+   CONTINUATION PAIRS — shared chrome stays put
+   while only the body crossfades between slides.
+   =========================================== */
+.slide.ai-continuation .ai-sequence-body{
+  transition:opacity .34s var(--ease),transform .34s var(--ease);
+  transition-delay:0s!important
+}
+.slide.ai-continuation.sequence-leaving .ai-sequence-body,
+.slide.ai-continuation.sequence-entering .ai-sequence-body{
+  opacity:0!important;
+  transform:translateY(14px)!important
+}
+
+/* ===========================================
    CHROME  (fixed — grayscale)
    =========================================== */
 .dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:13px;z-index:1000}

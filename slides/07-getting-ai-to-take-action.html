@@ -1,23 +1,38 @@
-<!-- ========== 7 · GETTING AI TO TAKE ACTION ========== -->
+<!-- ========== 7 · AI MODELS ARE LIKE BRAINS ========== -->
 <style>
-  .s-action .head{margin-bottom:62px}.s-action .h2{margin-top:20px}.s-action .rule{margin-top:30px}
-  .s-action .layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:120px;align-items:start;flex:1}
-  .s-action .statement{font:700 58px/1.06 var(--font-cond);text-transform:uppercase;max-width:16ch}
-  .s-action .points{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-  .s-action .points li{position:relative;padding:30px 20px 30px 54px;border-bottom:1px solid var(--line);font-size:30px;line-height:1.32;color:var(--gray)}
-  .s-action .points li::before{content:"";position:absolute;left:4px;top:47px;width:18px;height:3px;background:var(--blue)}
+  .s-brain .head{margin-bottom:42px}
+  .s-brain .head .rule{margin-top:30px}
+  .s-brain .layout{display:grid;grid-template-columns:760px 1fr;gap:98px;align-items:center;flex:1}
+  .s-brain .vat-image{
+    width:100%;height:560px;object-fit:contain;object-position:center;
+    mix-blend-mode:multiply;
+  }
+  .s-brain .statement{
+    margin-bottom:34px;font:700 58px/1.03 var(--font-cond);
+    letter-spacing:.01em;text-transform:uppercase;color:var(--ink);max-width:15ch;
+  }
+  .s-brain .points{border-top:1px solid var(--line)}
+  .s-brain .point{display:grid;grid-template-columns:210px 1fr;gap:30px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .s-brain .point strong{font:700 27px/1 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-brain .point span{font-size:24px;line-height:1.3;color:var(--gray)}
 </style>
-<section class="slide s-action">
+<section class="slide s-brain">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head"><div class="kicker reveal">Background</div><h2 class="h2 reveal">Getting AI to take action</h2><div class="rule reveal"></div></div>
+    <div class="head">
+      <h2 class="h2 reveal">AI Models Are Like Brains</h2>
+      <div class="rule reveal"></div>
+    </div>
     <div class="layout">
-      <p class="statement reveal">A useful agent needs more than a prompt.</p>
-      <ul class="points stagger">
-        <li>Access to the right tools and context</li>
-        <li>Clear boundaries for what it may change</li>
-        <li>A way to review and verify the result</li>
-      </ul>
+      <img class="vat-image reveal" src="assets/images/brain-in-a-vat.png" alt="A brain suspended inside a glass vat">
+      <div>
+        <p class="statement reveal">Pure decision-making. <span class="blue">No way to act.</span></p>
+        <div class="points stagger">
+          <div class="point"><strong>Predicts</strong><span>The next token from context</span></div>
+          <div class="point"><strong>Decides</strong><span>Which output is most useful</span></div>
+          <div class="point"><strong>Returns</strong><span>An answer to the user</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

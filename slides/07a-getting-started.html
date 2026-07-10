@@ -1,15 +1,51 @@
-<!-- ========== 7A · GETTING STARTED ========== -->
+<!-- ========== 7A · GETTING STARTED WITH GITHUB COPILOT ========== -->
 <style>
-  .s-start .head{margin-bottom:90px}.s-start .h2{margin-top:20px}.s-start .rule{margin-top:30px}
-  .s-start .body-copy{font-size:46px;line-height:1.34;max-width:29ch;color:var(--gray)}
-  .s-start .body-copy strong{color:var(--ink);font-weight:600}
-  .s-start .aside{margin-top:auto;padding-top:30px;border-top:3px solid var(--blue);font:700 40px/1.05 var(--font-cond);text-transform:uppercase;letter-spacing:.01em}
+  .s-copilot-start .head{margin-bottom:54px}
+  .s-copilot-start .head .rule{margin-top:30px}
+  .s-copilot-start .resources{display:grid;grid-template-columns:1fr 1fr;gap:46px;flex:1}
+  .s-copilot-start .resource{
+    position:relative;padding:42px 46px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    display:flex;flex-direction:column;background:rgba(255,255,255,.2);
+  }
+  .s-copilot-start .step{
+    font:500 15px var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--blue);
+  }
+  .s-copilot-start .resource h3{
+    margin-top:28px;font:700 50px/1.04 var(--font-cond);text-transform:uppercase;color:var(--ink);max-width:13ch;
+  }
+  .s-copilot-start .resource p{margin-top:24px;font-size:25px;line-height:1.4;color:var(--gray);max-width:31ch}
+  .s-copilot-start .link-name{
+    margin-top:auto;padding-top:30px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+    font:700 27px/1 var(--font-cond);text-transform:uppercase;color:var(--ink);
+  }
+  .s-copilot-start .link-name span:last-child{font:500 22px var(--font-mono);color:var(--blue)}
+  .s-copilot-start .after{
+    grid-column:1/-1;padding:25px 0 4px;border-top:3px solid var(--blue);
+    font:700 38px/1.08 var(--font-cond);text-align:center;text-transform:uppercase;color:var(--ink);
+  }
 </style>
-<section class="slide s-start">
+<section class="slide s-copilot-start">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head"><div class="kicker reveal">Getting started</div><h2 class="h2 reveal">Start with something familiar</h2><div class="rule reveal"></div></div>
-    <p class="body-copy reveal">Begin with a task you already understand. That makes it easier to judge the answer, catch mistakes, and learn where AI is most useful.</p>
-    <div class="aside reveal">Small task. Clear outcome. Easy review.</div>
+    <div class="head">
+      <h2 class="h2 reveal">Getting Started with GitHub Copilot</h2>
+      <div class="rule reveal"></div>
+    </div>
+    <div class="resources">
+      <article class="resource reveal">
+        <span class="step">01 · Request access</span>
+        <h3>Get approved for Copilot</h3>
+        <p>Submit Garmin's access form. Access is generally approved for employees.</p>
+        <div class="link-name"><span>Access request form</span><span>↗</span></div>
+      </article>
+      <article class="resource reveal">
+        <span class="step">02 · Set up</span>
+        <h3>Follow the IT guide</h3>
+        <p>Use the internal setup page to connect your account and sign in through VS Code.</p>
+        <div class="link-name"><span>IT Confluence page</span><span>↗</span></div>
+      </article>
+      <div class="after reveal">Approved → Sign in to GitHub Copilot → Open VS Code</div>
+    </div>
   </div>
 </section>

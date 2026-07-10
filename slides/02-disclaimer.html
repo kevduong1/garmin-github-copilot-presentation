@@ -1,58 +1,42 @@
 <!-- ========== 2 · DISCLAIMER ========== -->
 <style>
-  .s-disclaimer .head-block{margin-bottom:56px}
-  .s-disclaimer .head-block .h2{margin-top:22px}
-  .s-disclaimer .head-block .rule{margin:32px 0 0}
-  .s-disclaimer .lead{
-    max-width:none;
-    font-size:40px;
-    line-height:1.4;
-    margin-bottom:64px;
-  }
-  .s-disclaimer .notes{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:48px;
-    margin-top:auto;
-    padding-top:8px;
+  .s-disclaimer .head{margin-bottom:58px}
+  .s-disclaimer .head .rule{margin-top:30px}
+  .s-disclaimer .disclaimer-list{
+    display:flex;flex:1;flex-direction:column;
     border-top:1px solid var(--line);
   }
-  .s-disclaimer .note{
-    padding-top:36px;
+  .s-disclaimer .disclaimer-item{
+    display:grid;grid-template-columns:440px 1fr;align-items:center;flex:1;
+    padding:0 4px;border-bottom:1px solid var(--line);
   }
-  .s-disclaimer .note .label{
-    font-family:var(--font-mono);
-    font-size:16px;
-    font-weight:500;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--blue);
-    margin-bottom:18px;
+  .s-disclaimer .disclaimer-label{
+    font:700 38px/1.04 var(--font-cond);
+    letter-spacing:.01em;text-transform:uppercase;color:var(--ink);
   }
-  .s-disclaimer .note p{
-    font-size:28px;
-    line-height:1.5;
-    color:var(--gray);
-    max-width:22ch;
+  .s-disclaimer .disclaimer-copy{
+    max-width:58ch;font-size:30px;font-weight:400;line-height:1.45;color:var(--gray);
   }
 </style>
 <section class="slide s-disclaimer">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
-    <div class="head-block">
-      <div class="kicker reveal">Before we start</div>
+    <div class="head">
       <h2 class="h2 reveal">Disclaimer</h2>
       <div class="rule reveal"></div>
     </div>
-    <p class="lead reveal">This workshop covers introductory topics that power users may already know.</p>
-    <div class="notes stagger">
-      <div class="note">
-        <div class="label">Not for you?</div>
-        <p>Feel free to drop off. Keep an eye out for future workshops.</p>
+    <div class="disclaimer-list stagger">
+      <div class="disclaimer-item">
+        <h3 class="disclaimer-label">The target audience</h3>
+        <p class="disclaimer-copy">AI beginners</p>
       </div>
-      <div class="note">
-        <div class="label">Recorded</div>
-        <p>You can always watch it online later.</p>
+      <div class="disclaimer-item">
+        <h3 class="disclaimer-label">The goal</h3>
+        <p class="disclaimer-copy">From beginner → to being comfortable using AI at Garmin</p>
+      </div>
+      <div class="disclaimer-item">
+        <h3 class="disclaimer-label">The recording</h3>
+        <p class="disclaimer-copy">If this doesn’t describe you, feel free to drop off. The presentation is being recorded and will be generally available.</p>
       </div>
     </div>
   </div>
