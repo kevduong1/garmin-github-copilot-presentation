@@ -1,0 +1,42 @@
+<!-- ========== 7C2A · UNDERSTANDING VS CODE CHAT · WORKSPACES ========== -->
+<style>
+  .s-vscode-workspaces .head{margin-bottom:26px}
+  .s-vscode-workspaces .head .rule{margin-top:30px}
+  .s-vscode-workspaces .layout{display:grid;grid-template-columns:850px 1fr;gap:92px;align-items:center;flex:1}
+  .s-vscode-workspaces .kicker{font:500 15px var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--blue)}
+  .s-vscode-workspaces .lead{margin-top:18px;max-width:810px;font:700 57px/1.02 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-vscode-workspaces .body{margin-top:22px;max-width:790px;font-size:25px;line-height:1.38;color:var(--gray)}
+  .s-vscode-workspaces .setup{margin-top:30px;border-top:1px solid var(--line)}
+  .s-vscode-workspaces .setup-row{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:17px 8px;border-bottom:1px solid var(--line)}
+  .s-vscode-workspaces .setup-number{font:500 16px var(--font-mono);color:var(--blue);padding-top:4px}
+  .s-vscode-workspaces .setup-title{font:700 28px/1.08 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-vscode-workspaces .examples{margin-top:30px;padding:22px 26px;border-left:5px solid var(--blue);background:#e5f2f9}
+  .s-vscode-workspaces .examples-label{font:500 14px var(--font-mono);letter-spacing:.15em;text-transform:uppercase;color:var(--blue)}
+  .s-vscode-workspaces .example{margin-top:11px;font:600 22px/1.28 var(--font-body);color:var(--ink)}
+  .s-vscode-workspaces .preview{position:relative;top:-34px;display:flex;justify-content:center}
+  .s-vscode-workspaces .preview img{display:block;width:auto;height:790px;max-width:100%;object-fit:contain;box-shadow:0 18px 42px rgba(20,26,30,.18)}
+</style>
+<section class="slide s-vscode-workspaces ai-continuation" data-continuation="vscode-chat">
+  <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
+  <div class="pad">
+    <div class="head"><h2 class="h2">VS Code Chat</h2><div class="rule"></div></div>
+    <div class="layout ai-sequence-body reveal">
+      <div>
+        <div class="kicker">02B · Workspaces</div>
+        <h3 class="lead">Open the codebase. Ask in plain English.</h3>
+        <p class="body">A workspace gives the agent a clear boundary to search. It finds and reads the relevant files as needed—the whole repo is not pasted into every prompt.</p>
+        <div class="setup">
+          <div class="setup-row"><span class="setup-number">01</span><span class="setup-title">Open a folder or repository</span></div>
+          <div class="setup-row"><span class="setup-number">02</span><span class="setup-title">Add folders when work spans projects</span></div>
+          <div class="setup-row"><span class="setup-number">03</span><span class="setup-title">Save the workspace to reopen the same setup</span></div>
+        </div>
+        <div class="examples">
+          <div class="examples-label">Prompt it naturally</div>
+          <div class="example">“Search the workspace for retry handling.”</div>
+          <div class="example">“Find the config file in the repo root.”</div>
+        </div>
+      </div>
+      <div class="preview"><img src="assets/vscode-workspace-explorer.png" alt="VS Code Explorer showing the GIFD3 codebase opened as a saved workspace"></div>
+    </div>
+  </div>
+</section>

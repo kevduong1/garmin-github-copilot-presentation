@@ -20,6 +20,7 @@ window.SLIDES = [
   '07b-accessing-ai-with-vscode.html',
   '07c-understanding-vscode-chat.html',
   '07c2-chat-context.html',
+  '07c2a-vscode-workspaces.html',
   '07c3-model-reasoning.html',
   '07c4-agent-approvals.html',
   '07d-cost.html',
