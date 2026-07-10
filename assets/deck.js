@@ -23,6 +23,8 @@ async function loadSlides(){
   stage.innerHTML=results.filter(r=>r.status==='fulfilled').map(r=>r.value).join('\n');
   editor.load();
   initPlanMode();
+  initChatHistoryDemo();
+  initContextInputsDemo();
   initAgentsMd();
   initContextDemo();
   initOutputLoopDemo();
@@ -51,6 +53,52 @@ function initPlanMode(){
       point.addEventListener('focus',activate);
       point.addEventListener('click',activate);
     });
+  });
+}
+
+/* ============================================================
+   CHAT HISTORY DEMO — hover, focus, or click to compare a new
+   session with a previously opened conversation on slide 07C.
+   ============================================================ */
+function initChatHistoryDemo(){
+  document.querySelectorAll('[data-chat-history-demo]').forEach(slide=>{
+    const points=[...slide.querySelectorAll('[data-chat-history-panel]')];
+    const panels=[...slide.querySelectorAll('[data-chat-history-image]')];
+    const select=key=>{
+      points.forEach(point=>point.classList.toggle('selected',point.dataset.chatHistoryPanel===key));
+      panels.forEach(panel=>panel.classList.toggle('show',panel.dataset.chatHistoryImage===key));
+    };
+    points.forEach(point=>{
+      const activate=()=>select(point.dataset.chatHistoryPanel);
+      point.addEventListener('mouseenter',activate);
+      point.addEventListener('focus',activate);
+      point.addEventListener('click',activate);
+    });
+    slide.resetChatHistoryDemo=()=>select('new');
+    slide.resetChatHistoryDemo();
+  });
+}
+
+/* ============================================================
+   CONTEXT INPUTS DEMO — compare direct prompts, attachments,
+   and selected code on slide 07C2.
+   ============================================================ */
+function initContextInputsDemo(){
+  document.querySelectorAll('[data-context-inputs-demo]').forEach(slide=>{
+    const points=[...slide.querySelectorAll('[data-context-input-panel]')];
+    const panels=[...slide.querySelectorAll('[data-context-input-image]')];
+    const select=key=>{
+      points.forEach(point=>point.classList.toggle('selected',point.dataset.contextInputPanel===key));
+      panels.forEach(panel=>panel.classList.toggle('show',panel.dataset.contextInputImage===key));
+    };
+    points.forEach(point=>{
+      const activate=()=>select(point.dataset.contextInputPanel);
+      point.addEventListener('mouseenter',activate);
+      point.addEventListener('focus',activate);
+      point.addEventListener('click',activate);
+    });
+    slide.resetContextInputsDemo=()=>select('typing');
+    slide.resetContextInputsDemo();
   });
 }
 
@@ -164,6 +212,8 @@ class Deck{
     this.i=n;
     this.slides[this.i].resetContextDemo?.();
     this.slides[this.i].resetOutputLoopDemo?.();
+    this.slides[this.i].resetChatHistoryDemo?.();
+    this.slides[this.i].resetContextInputsDemo?.();
     this.slides.forEach((s,k)=>{s.classList.toggle('active',k===this.i);s.classList.toggle('visible',k===this.i)});
     this.dots.forEach((d,k)=>d.classList.toggle('on',k===this.i));
     document.getElementById('counter').innerHTML=`<b>${String(this.i+1).padStart(2,'0')}</b> / ${String(this.slides.length).padStart(2,'0')}`;

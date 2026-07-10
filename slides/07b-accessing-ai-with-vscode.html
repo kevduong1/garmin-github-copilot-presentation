@@ -1,26 +1,28 @@
 <!-- ========== 7B · ACCESSING COPILOT IN VS CODE ========== -->
 <style>
-  .s-vscode-access .head{margin-bottom:42px}
+  .s-vscode-access .head{margin-bottom:30px}
   .s-vscode-access .head .rule{margin-top:30px}
-  .s-vscode-access .layout{display:grid;grid-template-columns:410px 1fr;gap:78px;align-items:center;flex:1}
+  .s-vscode-access .content{display:grid;grid-template-columns:390px 1fr;gap:42px;align-items:center;flex:1}
   .s-vscode-access .step{font:500 15px var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--blue)}
-  .s-vscode-access .lead{margin-top:23px;font:700 52px/1.03 var(--font-cond);text-transform:uppercase;color:var(--ink)}
-  .s-vscode-access .body{margin-top:26px;font-size:25px;line-height:1.42;color:var(--gray)}
-  .s-vscode-access .editor{
-    position:relative;height:565px;border:1px solid #aeb4ba;background:#f8f9fa;
-    box-shadow:0 16px 36px rgba(20,26,30,.09);overflow:hidden;
+  .s-vscode-access .lead{margin-top:22px;font:700 48px/1.03 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-vscode-access .body{margin-top:24px;font-size:24px;line-height:1.38;color:var(--gray)}
+  .s-vscode-access .shortcut{
+    margin-top:34px;padding:22px;border-top:3px solid var(--blue);background:rgba(255,255,255,.5);
   }
-  .s-vscode-access .topbar{height:58px;padding:0 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font:15px var(--font-mono);color:var(--gray2)}
-  .s-vscode-access .copilot-button{position:relative;padding:10px 18px;border:2px solid var(--blue);color:var(--ink);background:#fff}
-  .s-vscode-access .copilot-button::after{content:"";position:absolute;inset:-12px;border:2px solid var(--blue);opacity:.28}
-  .s-vscode-access .workspace{display:grid;grid-template-columns:78px 1fr 380px;height:calc(100% - 58px)}
-  .s-vscode-access .rail{border-right:1px solid var(--line);padding:26px 0;display:flex;flex-direction:column;align-items:center;gap:23px}
-  .s-vscode-access .rail i{width:26px;height:26px;border:2px solid #8b9298;display:block}
-  .s-vscode-access .files{padding:34px;font:18px/1.75 var(--font-mono);color:#8b9298}
-  .s-vscode-access .files strong{color:var(--ink);font-weight:500}
-  .s-vscode-access .chat{border-left:1px solid var(--line);background:#fff;padding:28px 25px;display:flex;flex-direction:column}
-  .s-vscode-access .chat-title{font:500 15px var(--font-mono);letter-spacing:.13em;text-transform:uppercase;color:var(--blue)}
-  .s-vscode-access .empty{margin:auto;text-align:center;font-size:22px;line-height:1.35;color:var(--gray2)}
+  .s-vscode-access .shortcut-label{font:500 14px var(--font-mono);letter-spacing:.15em;text-transform:uppercase;color:var(--gray2)}
+  .s-vscode-access .keys{display:flex;align-items:center;gap:10px;margin-top:12px}
+  .s-vscode-access kbd{
+    min-width:88px;height:48px;padding:0 14px;border:1px solid #abb1b7;border-bottom-width:4px;background:#fff;
+    display:inline-flex;align-items:center;justify-content:center;font:700 22px/1 var(--font-mono);color:var(--ink);
+  }
+  .s-vscode-access .key-name{margin-left:8px;font:700 23px/1.08 var(--font-cond);text-transform:uppercase;color:var(--ink)}
+  .s-vscode-access .screen{
+    height:690px;display:flex;align-items:center;justify-content:center;background:transparent;
+  }
+  .s-vscode-access .screen img{
+    display:block;width:auto;height:auto;max-width:100%;max-height:690px;object-fit:contain;
+    border:1px solid #81878d;box-shadow:0 18px 42px rgba(20,26,30,.18);
+  }
 </style>
 <section class="slide s-vscode-access">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
@@ -29,19 +31,18 @@
       <h2 class="h2 reveal">Accessing Copilot in VS Code</h2>
       <div class="rule reveal"></div>
     </div>
-    <div class="layout">
+    <div class="content">
       <div>
         <div class="step reveal">Open the chat panel</div>
-        <p class="lead reveal">Start where the work already happens.</p>
-        <p class="body reveal">Select the Copilot button in VS Code to open the chat window.</p>
-      </div>
-      <div class="editor reveal" aria-label="Screenshot-ready VS Code mockup highlighting the Copilot button">
-        <div class="topbar"><span>activityService.ts · Visual Studio Code</span><span class="copilot-button">Copilot</span></div>
-        <div class="workspace">
-          <div class="rail"><i></i><i></i><i></i><i></i></div>
-          <div class="files"><strong>EXPLORER</strong><br><br>src/<br>&nbsp;&nbsp;activityService.ts<br>&nbsp;&nbsp;activityService.test.ts<br>package.json<br>README.md</div>
-          <div class="chat"><div class="chat-title">Copilot Chat</div><div class="empty">Your chats appear here.<br>Ask, edit, or delegate.</div></div>
+        <p class="lead reveal">Chat lives in the right sidebar.</p>
+        <p class="body reveal">Select Chat in the title bar, or toggle the entire right-side panel with the shortcut.</p>
+        <div class="shortcut reveal">
+          <div class="shortcut-label">Windows / Linux · Toggle Secondary Side Bar</div>
+          <div class="keys"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>B</kbd><span class="key-name">Show / hide Chat</span></div>
         </div>
+      </div>
+      <div class="screen reveal" aria-label="VS Code screenshot with the Chat icon highlighted in red">
+        <img src="assets/vscode-chat-panel.png" alt="VS Code with its Chat panel open in the Secondary Side Bar">
       </div>
     </div>
   </div>

@@ -49,7 +49,7 @@
     font-size:25px;line-height:1.38;color:var(--gray);
   }
 </style>
-<section class="slide s-output-loop ai-continuation" data-continuation="ai-models" data-output-loop data-output-tokens="Sun|rises|in|the|east|.">
+<section class="slide s-output-loop ai-continuation" data-continuation="ai-models" data-output-loop data-output-tokens="the|east|.">
   <div class="brand"><svg class="delta" viewBox="0 0 44 40"><path d="M22 2 42 38H2L22 2Z" fill="#007cc3"/></svg><span class="wm">GARMIN</span></div>
   <div class="pad">
     <div class="head">
@@ -69,6 +69,9 @@
           <div class="sim-label">Ever-expanding context window</div>
           <div class="context-stream" data-context-stream>
             <span class="context-token">The</span>
+            <span class="context-token">sun</span>
+            <span class="context-token">rises</span>
+            <span class="context-token">in</span>
           </div>
           <div class="controls">
             <button class="generate" type="button" data-generate-token>Generate next token</button>
@@ -78,7 +81,7 @@
         <div>
           <div class="sim-label">What grows on every call</div>
           <div class="metrics">
-            <div class="metric"><span class="metric-name">Next call reattaches</span><span class="metric-value blue" data-next-input>1 token</span></div>
+            <div class="metric"><span class="metric-name">Next call reattaches</span><span class="metric-value blue" data-next-input>4 tokens</span></div>
             <div class="metric"><span class="metric-name">Generated output</span><span class="metric-value" data-generated-count>0 tokens</span></div>
             <div class="metric"><span class="metric-name">Total input processed</span><span class="metric-value" data-cumulative>0 tokens</span></div>
           </div>
