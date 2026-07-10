@@ -69,16 +69,16 @@ function initPlanMode(){
     const panels=[...slide.querySelectorAll('[data-plan-demo]')];
     const demo=slide.querySelector('.demo');
     const select=key=>{
-      points.forEach(point=>point.classList.toggle('selected',point.dataset.planPanel===key));
+      points.forEach(point=>{
+        const selected=point.dataset.planPanel===key;
+        point.classList.toggle('selected',selected);
+        point.setAttribute('aria-pressed',String(selected));
+      });
       panels.forEach(panel=>panel.classList.toggle('show',panel.dataset.planDemo===key));
       demo.classList.toggle('video-active',key==='video');
     };
-    points.forEach(point=>{
-      const activate=()=>select(point.dataset.planPanel);
-      point.addEventListener('mouseenter',activate);
-      point.addEventListener('focus',activate);
-      point.addEventListener('click',activate);
-    });
+    points.forEach(point=>point.addEventListener('click',()=>select(point.dataset.planPanel)));
+    select(points[0]?.dataset.planPanel);
 
     slide.querySelectorAll('[data-plan-demo="questions"]').forEach(questionDemo=>{
       const steps=[...questionDemo.querySelectorAll('[data-question-step]')];
@@ -150,23 +150,22 @@ function initPlanMode(){
 }
 
 /* ============================================================
-   CHAT HISTORY DEMO — hover, focus, or click to compare a new
-   session with a previously opened conversation on slide 07C.
+   CHAT HISTORY DEMO — select a point to compare a new session
+   with a previously opened conversation on slide 07C.
    ============================================================ */
 function initChatHistoryDemo(){
   document.querySelectorAll('[data-chat-history-demo]').forEach(slide=>{
     const points=[...slide.querySelectorAll('[data-chat-history-panel]')];
     const panels=[...slide.querySelectorAll('[data-chat-history-image]')];
     const select=key=>{
-      points.forEach(point=>point.classList.toggle('selected',point.dataset.chatHistoryPanel===key));
+      points.forEach(point=>{
+        const selected=point.dataset.chatHistoryPanel===key;
+        point.classList.toggle('selected',selected);
+        point.setAttribute('aria-pressed',String(selected));
+      });
       panels.forEach(panel=>panel.classList.toggle('show',panel.dataset.chatHistoryImage===key));
     };
-    points.forEach(point=>{
-      const activate=()=>select(point.dataset.chatHistoryPanel);
-      point.addEventListener('mouseenter',activate);
-      point.addEventListener('focus',activate);
-      point.addEventListener('click',activate);
-    });
+    points.forEach(point=>point.addEventListener('click',()=>select(point.dataset.chatHistoryPanel)));
     slide.resetChatHistoryDemo=()=>select('new');
     slide.resetChatHistoryDemo();
   });
@@ -181,15 +180,14 @@ function initContextInputsDemo(){
     const points=[...slide.querySelectorAll('[data-context-input-panel]')];
     const panels=[...slide.querySelectorAll('[data-context-input-image]')];
     const select=key=>{
-      points.forEach(point=>point.classList.toggle('selected',point.dataset.contextInputPanel===key));
+      points.forEach(point=>{
+        const selected=point.dataset.contextInputPanel===key;
+        point.classList.toggle('selected',selected);
+        point.setAttribute('aria-pressed',String(selected));
+      });
       panels.forEach(panel=>panel.classList.toggle('show',panel.dataset.contextInputImage===key));
     };
-    points.forEach(point=>{
-      const activate=()=>select(point.dataset.contextInputPanel);
-      point.addEventListener('mouseenter',activate);
-      point.addEventListener('focus',activate);
-      point.addEventListener('click',activate);
-    });
+    points.forEach(point=>point.addEventListener('click',()=>select(point.dataset.contextInputPanel)));
     slide.resetContextInputsDemo=()=>select('typing');
     slide.resetContextInputsDemo();
   });
